@@ -1,0 +1,1 @@
+export const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300'

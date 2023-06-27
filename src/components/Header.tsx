@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { BsTelegram, BsGithub } from 'react-icons/bs'
 // import { HashLink } from 'react-router-hash-link'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-export const NavBar = () => {
+import { Context } from '../context/Context'
+
+export const Header = () => {
   const [activeLink, setActiveLink] = useState('home')
   const [scrolled, setScrolled] = useState(false)
+  const { setContactsInViewport } = useContext(Context)
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,7 +39,7 @@ export const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
           <Navbar.Collapse>
-            <Nav className="ms-auto">
+            <Nav className="mr-5 ms-auto">
               <Nav.Link
                 href="#home"
                 className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}
@@ -52,28 +55,32 @@ export const NavBar = () => {
                 Projects
               </Nav.Link>
               <Nav.Link
-                href="#skills"
+                href="#about"
                 className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}
                 onClick={() => onUpdateActiveLink('about')}
               >
-                Skills
+                About Me
+              </Nav.Link>
+              <Nav.Link
+                href="#contacts"
+                className={activeLink === 'contact' ? 'active navbar-link' : 'navbar-link'}
+                onClick={() => {
+                  onUpdateActiveLink('contacts')
+                  setContactsInViewport(true)
+                }}
+              >
+                Contacts
               </Nav.Link>
             </Nav>
-            {/* <span className='bg-slate-100 border-red-100'> */}
+            {/* <span className='border-red-100 bg-slate-100'> */}
             <div className="flex justify-center gap-2 text-5xl">
               <a href="https://github.com/ittrainbow">
-                <BsGithub className="cursor-pointer" />
+                <BsGithub className="text-gray-200 cursor-pointer bg-zinc-950 rounded-3xl" />
               </a>
               <a href="https://t.me/ittrainbow">
-                <BsTelegram className="cursor-pointer" />
+                <BsTelegram className="bg-white cursor-pointer rounded-3xl text-sky-500" />
               </a>
             </div>
-            {/* <HashLink to="#connect">
-                <button className="vvd">
-                  <span>Let’s Connect</span>
-                </button>
-              </HashLink> */}
-            {/* </span> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

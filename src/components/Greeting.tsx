@@ -4,16 +4,18 @@ import headerImg from '../assets/img/header-img.svg'
 import { ArrowRightCircle } from 'react-bootstrap-icons'
 import { useVisibility } from '../hooks/useVisibility'
 
-export const Banner = () => {
+export const Greeting = () => {
   const [hover, setHover] = useState<boolean>(false)
   const bannerRef = useRef(null)
   const isInViewport = useVisibility(bannerRef)
 
   const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300'
-  const buttonStyle = `ml-${hover ? 8 : 3} ease-in-out duration-300 text-cyan-300`
+  const buttonStyle = `${
+    hover ? 'ml-8' : 'ml-3'
+  } ease-in-out duration-300 text-violet-500 text-5xl font-bold`
 
   return (
-    <section className="bg-center bg-repeat bg-cover pt-36 bg-space" id="home">
+    <section className="pt-36" id="home">
       <Container>
         <div className="flex flex-row max-w-4xl aligh-items-center">
           <div ref={bannerRef} className={isInViewport ? 'animate-fade-in' : ''}>
@@ -28,15 +30,14 @@ export const Banner = () => {
               Nowadays i'm looking for new stint of my career as software engineer. Let me share
               some examples of my code with you.
             </p>
-            <a href="#projects" className="no-underline">
-              <button
-                className="flex flex-row items-center text-2xl font-bold text-white"
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-              >
-                <div>Move Further</div>
-                <ArrowRightCircle size={25} className={buttonStyle} />
-              </button>
+            <a
+              href="#projects"
+              className="flex flex-row items-center no-underline"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              <div className="text-2xl font-semibold text-gray-200">Move Further</div>
+              <ArrowRightCircle size={30} className={buttonStyle} />
             </a>
           </div>
           <div className={isInViewport ? 'animate__animated animate__zoomIn' : ''}>
