@@ -1,35 +1,39 @@
 import { useState, useEffect, useContext } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { BsTelegram, BsGithub } from 'react-icons/bs'
-// import { HashLink } from 'react-router-hash-link'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { Context } from '../context/Context'
 
 export const Header = () => {
+  const { greetingInViewport, projectsInViewport, aboutInViewport, contactsInViewport } =
+    useContext(Context)
   const [activeLink, setActiveLink] = useState('home')
   const [scrolled, setScrolled] = useState(false)
-  const { setContactsInViewport } = useContext(Context)
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
+    const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll)
-
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const onUpdateActiveLink = (value: string) => {
-    setActiveLink(value)
-  }
+  useEffect(() => {
+    greetingInViewport && !projectsInViewport && setActiveLink('home')
+    projectsInViewport && !aboutInViewport && setActiveLink('projects')
+    aboutInViewport && !contactsInViewport && setActiveLink('about')
+    contactsInViewport && setActiveLink('contacts')
+  }, [greetingInViewport, projectsInViewport, aboutInViewport, contactsInViewport])
 
   const styleScrolled = 'p-0 bg-gray-800'
+
+  const styleTransition = 'transition-all duration-200 mr-5'
+
+  const styleTab = (activeLink: boolean) =>
+    `${activeLink ? 'text-white' : 'text-gray-500'} ${styleTransition} text-2xl mr-5`
+
+  const styleIcons = `${
+    scrolled ? 'text-3xl' : 'text-5xl'
+  } ${styleTransition} flex justify-center gap-2 w-20 `
 
   return (
     <Router>
@@ -40,40 +44,20 @@ export const Header = () => {
           </Navbar.Toggle>
           <Navbar.Collapse>
             <Nav className="mr-5 ms-auto">
-              <Nav.Link
-                href="#home"
-                className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}
-                onClick={() => onUpdateActiveLink('home')}
-              >
-                Home
+              <Nav.Link href="#home">
+                <div className={styleTab(activeLink === 'home')}>Home</div>
               </Nav.Link>
-              <Nav.Link
-                href="#projects"
-                className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}
-                onClick={() => onUpdateActiveLink('projects')}
-              >
-                Projects
+              <Nav.Link href="#projects">
+                <div className={styleTab(activeLink === 'projects')}> Projects</div>
               </Nav.Link>
-              <Nav.Link
-                href="#about"
-                className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}
-                onClick={() => onUpdateActiveLink('about')}
-              >
-                About Me
+              <Nav.Link href="#about">
+                <div className={styleTab(activeLink === 'about')}>About Me</div>
               </Nav.Link>
-              <Nav.Link
-                href="#contacts"
-                className={activeLink === 'contact' ? 'active navbar-link' : 'navbar-link'}
-                onClick={() => {
-                  onUpdateActiveLink('contacts')
-                  setContactsInViewport(true)
-                }}
-              >
-                Contacts
+              <Nav.Link href="#contacts">
+                <div className={styleTab(activeLink === 'contacts')}>Contacts</div>
               </Nav.Link>
             </Nav>
-            {/* <span className='border-red-100 bg-slate-100'> */}
-            <div className="flex justify-center gap-2 text-5xl">
+            <div className={styleIcons}>
               <a href="https://github.com/ittrainbow">
                 <BsGithub className="text-gray-200 cursor-pointer bg-zinc-950 rounded-3xl" />
               </a>

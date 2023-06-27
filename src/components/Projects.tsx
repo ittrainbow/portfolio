@@ -1,5 +1,5 @@
 import { Container, Row } from 'react-bootstrap'
-import { useRef, useContext } from 'react'
+import { useRef, useEffect, useContext } from 'react'
 
 import { Context } from '../context/Context'
 import { Card } from './Card'
@@ -8,23 +8,23 @@ import { useVisibility } from '../hooks/useVisibility'
 
 export const Projects = () => {
   const projectsRef = useRef<HTMLDivElement>(null)
-  const { aboutInViewport } = useContext(Context)
   const isInViewport = useVisibility(projectsRef)
+  const { setProjectsInViewport } = useContext(Context)
+
+  useEffect(() => {
+    setProjectsInViewport(isInViewport)
+  }, [isInViewport])
 
   return (
     <section className="relative pt-20" id="projects">
       <Container>
-        <div ref={projectsRef}>
-          <div className={isInViewport || aboutInViewport ? 'animate-fade-up' : ''}>
-            <h2 className="text-4xl font-bold text-center">
-              {isInViewport ? 'My Projects' : ''}
-            </h2>
-            <Row className='pt-10'>
-              {projects.map((project, index) => {
-                return isInViewport || aboutInViewport ? <Card key={index} {...project} /> : ''
-              })}
-            </Row>
-          </div>
+        <div ref={projectsRef} className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
+          <h2 className="text-4xl font-bold text-center">My Projects</h2>
+          <Row className="pt-10">
+            {projects.map((project, index) => {
+              return <Card key={index} {...project} />
+            })}
+          </Row>
         </div>
       </Container>
     </section>

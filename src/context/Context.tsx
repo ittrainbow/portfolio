@@ -1,6 +1,8 @@
 import { createContext, Dispatch, SetStateAction, useState } from 'react'
 
 type ContextType = {
+  greetingInViewport: boolean
+  setGreetingInViewport: Dispatch<SetStateAction<boolean>>
   aboutInViewport: boolean
   setAboutInViewport: Dispatch<SetStateAction<boolean>>
   projectsInViewport: boolean
@@ -16,6 +18,7 @@ type ContextChildren = {
 export const Context = createContext({} as ContextType)
 
 export const ContextProvider = ({ children }: ContextChildren) => {
+  const [greetingInViewport, setGreetingInViewport] = useState<boolean>(true)
   const [aboutInViewport, setAboutInViewport] = useState<boolean>(false)
   const [contactsInViewport, setContactsInViewport] = useState<boolean>(false)
   const [projectsInViewport, setProjectsInViewport] = useState<boolean>(false)
@@ -23,6 +26,8 @@ export const ContextProvider = ({ children }: ContextChildren) => {
   return (
     <Context.Provider
       value={{
+        greetingInViewport,
+        setGreetingInViewport,
         aboutInViewport,
         setAboutInViewport,
         contactsInViewport,

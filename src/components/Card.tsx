@@ -44,12 +44,12 @@ export const Card = ({
   return (
     <Col size={2} sm={6} md={4}>
       <div ref={cardRef} className="relative mb-16 overflow-hidden rounded-3xl proj-imgbx">
-        <div className={isInViewport ? 'opacity-1' : 'opacity-0'}>
+        <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
           <img src={imgUrl} />
-          <div className="px-2 min-w-xs proj-txtx 'animate-fade-up'">
+          <div className="px-2 min-w-xs proj-txtx">
             <h4>{title}</h4>
             <h5>{description}</h5>
-            <div className='grow'>{stack}</div>
+            <div className="grow">{stack}</div>
             <div className="bottom-0 flex flex-row justify-between mt-3">
               <div>
                 <div className={stackStyles}>
