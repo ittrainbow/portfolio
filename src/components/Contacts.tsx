@@ -10,7 +10,7 @@ export const Contacts = () => {
   const { setContactsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setContactsInViewport(isInViewport)
+    setContactsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
   return (
