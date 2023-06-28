@@ -1,11 +1,9 @@
 import { Col } from 'react-bootstrap'
-import { useRef, useContext } from 'react'
+import { useRef } from 'react'
 import { BsGithub } from 'react-icons/bs'
 import { FaExternalLinkAlt, FaFileDownload } from 'react-icons/fa'
 
 import { useVisibility } from '../hooks/useVisibility'
-import { Context } from '../context/Context'
-import { pStyle } from '../helpers/styles'
 
 type IconType = {
   alt: string
@@ -37,7 +35,6 @@ export const Card = ({
   icons,
   apk = ''
 }: CardPropsType) => {
-  const { aboutInViewport } = useContext(Context)
   const cardRef = useRef<HTMLDivElement>(null)
   const isInViewport = useVisibility(cardRef)
 
@@ -45,7 +42,7 @@ export const Card = ({
     <Col size={2} sm={6} md={4}>
       <div ref={cardRef} className="relative mb-16 overflow-hidden rounded-3xl proj-imgbx">
         <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
-          <img src={imgUrl} />
+          <img src={imgUrl} alt=""/>
           <div className="px-2 min-w-xs proj-txtx">
             <h4>{title}</h4>
             <h5>{description}</h5>

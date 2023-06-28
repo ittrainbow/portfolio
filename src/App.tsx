@@ -1,6 +1,6 @@
 import './App.css'
 import './styles/styles.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import { Header, Greeting, Projects, About, Footer, Contacts } from './components'
 
 const App = () => {

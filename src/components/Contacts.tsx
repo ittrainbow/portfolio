@@ -11,7 +11,7 @@ export const Contacts = () => {
   const { setContactsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setContactsInViewport(isInViewport)
+    setContactsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
   const contactStyle = `grid place-items-center ${isInViewport ? 'animate-fade-up' : 'opacity-0'}`

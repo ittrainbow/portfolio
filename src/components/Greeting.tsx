@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import { Container } from 'react-bootstrap'
 import headerImg from '../assets/img/header-img.svg'
-import { ArrowRightCircle } from 'react-bootstrap-icons'
+import { FiArrowRightCircle } from 'react-icons/fi'
 
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
@@ -13,7 +12,7 @@ export const Greeting = () => {
   const isInViewport = useVisibility(greetingRef)
 
   useEffect(() => {
-    setGreetingInViewport(isInViewport)
+    setGreetingInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
   const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300'
@@ -22,11 +21,15 @@ export const Greeting = () => {
   } ease-in-out duration-300 text-violet-500 text-5xl font-bold`
 
   return (
-    <section className="pt-36" id="home">
-      <Container>
-        <div className="flex flex-row max-w-4xl aligh-items-center">
-          <div ref={greetingRef} className={isInViewport ? 'animate-fade-in' : ''}>
-            <span className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</span>
+    <div
+      ref={greetingRef}
+      className={isInViewport ? 'animate-fade-up pt-36' : 'opacity-0 px-36'}
+      id="home"
+    >
+      <div className="grid place-items-center">
+        <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
+          <div className='text-center sm:col-span-3 sm:text-left'>
+            <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
             <p className={pStyle}>Front-end developer.</p>
             <p className={pStyle}>
               Gratuated from Bauman Moscow State Technical University. Spent 10 years working as
@@ -39,19 +42,19 @@ export const Greeting = () => {
             </p>
             <a
               href="#projects"
-              className="flex flex-row items-center no-underline"
+              className="flex flex-row items-center pt-5 no-underline"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
               <div className="text-2xl font-semibold text-gray-200">Move Further</div>
-              <ArrowRightCircle size={30} className={buttonStyle} />
+              <FiArrowRightCircle size={30} className={buttonStyle} />
             </a>
           </div>
-          <div className={isInViewport ? 'animate__animated animate__zoomIn' : ''}>
+          <div className='sm:col-span-2'>
             <img src={headerImg} alt="Header Img" />
           </div>
         </div>
-      </Container>
-    </section>
+      </div>
+    </div>
   )
 }
