@@ -11,13 +11,8 @@ export const Projects = () => {
   const { setProjectsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setProjectsInViewport(isInViewport)
-    // eslint-disable-next-line
+    setProjectsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
-
-  const headerStyle = `${
-    isInViewport ? 'animate-fade-up' : 'opacity-0'
-  } text-4xl font-bold text-center mb-16`
 
   return (
     <div
@@ -25,7 +20,7 @@ export const Projects = () => {
       className={isInViewport ? 'animate-fade-up pt-20' : 'opacity-0 pt-20'}
       id="projects"
     >
-      <h2 className={headerStyle}>My Projects</h2>
+      <h2 className='mb-5 text-4xl font-bold text-center'>My Projects</h2>
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-2">
           {projects.map((project, index) => {

@@ -12,6 +12,7 @@ export const Greeting = () => {
   const isInViewport = useVisibility(greetingRef)
 
   useEffect(() => {
+    console.log(1, isInViewport)
     setGreetingInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
@@ -23,7 +24,7 @@ export const Greeting = () => {
   return (
     <div
       ref={greetingRef}
-      className={isInViewport ? 'animate-fade-up pt-36' : 'opacity-0 px-36'}
+      className={isInViewport ? 'animate-fade-in pt-36' : 'opacity-0'}
       id="home"
     >
       <div className="grid place-items-center">
