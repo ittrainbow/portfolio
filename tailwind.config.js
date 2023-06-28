@@ -9,7 +9,7 @@ module.exports = {
           '100%': { opacity: 1, transform: 'translate(0px, 0px)' }
         },
         fadeIn: {
-          '0%': { opacity: 0.2 },
+          '0%': { opacity: 0.1 },
           '100%': { opacity: 1.0 }
         }
       },

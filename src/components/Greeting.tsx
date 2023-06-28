@@ -4,6 +4,7 @@ import { FiArrowRightCircle } from 'react-icons/fi'
 
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
+import { pStyle } from '../helpers/styles'
 
 export const Greeting = () => {
   const { setGreetingInViewport } = useContext(Context)
@@ -12,24 +13,20 @@ export const Greeting = () => {
   const isInViewport = useVisibility(greetingRef)
 
   useEffect(() => {
-    console.log(1, isInViewport)
     setGreetingInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
-  const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300'
-  const buttonStyle = `${
+  const buttonStyle = `ease-in-out duration-300 text-violet-500 text-5xl font-bold ${
     hover ? 'ml-8' : 'ml-3'
-  } ease-in-out duration-300 text-violet-500 text-5xl font-bold`
+  } `
+
+  const fadeClass = `${isInViewport ? 'animate-fade-up' : 'opacity-0'} pt-24 py-16`
 
   return (
-    <div
-      ref={greetingRef}
-      className={isInViewport ? 'animate-fade-in pt-36' : 'opacity-0'}
-      id="home"
-    >
+    <div ref={greetingRef} className={fadeClass} id="home">
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
-          <div className='text-center sm:col-span-3 sm:text-left'>
+          <div className="grid text-center place-items-center sm:place-items-start sm:col-span-3 sm:text-left">
             <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
             <p className={pStyle}>Front-end developer.</p>
             <p className={pStyle}>
@@ -51,7 +48,7 @@ export const Greeting = () => {
               <FiArrowRightCircle size={30} className={buttonStyle} />
             </a>
           </div>
-          <div className='sm:col-span-2'>
+          <div className="sm:col-span-2">
             <img src={headerImg} alt="Header Img" />
           </div>
         </div>

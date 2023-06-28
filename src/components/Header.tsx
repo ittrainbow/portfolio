@@ -1,7 +1,10 @@
 import { useState, useEffect, useContext } from 'react'
 import { BsTelegram, BsGithub } from 'react-icons/bs'
+import { isMobile } from 'react-device-detect'
 
 import { Context } from '../context/Context'
+
+console.log(1, isMobile)
 
 export const Header = () => {
   const { greetingInViewport, projectsInViewport, aboutInViewport, contactsInViewport } =
@@ -28,7 +31,7 @@ export const Header = () => {
     scrolled ? 'bg-opacity-95' : 'bg-opacity-0'
   } ease-in flex flex-row items-center ${styleTransition}`
 
-  const styleContent = `${
+  const styleLinks = `${
     scrolled ? 'h-12' : 'h-20'
   } flex flex-row mr-5 ms-auto items-center ${styleTransition}`
 
@@ -38,10 +41,11 @@ export const Header = () => {
   const styleIcons = `${
     scrolled ? 'text-3xl' : 'text-5xl'
   } ${styleTransition} flex justify-center gap-2 w-20 `
+  
 
   return (
     <div className={styleScrolled}>
-      <div className={styleContent}>
+      <div className={styleLinks}>
         <a href="#home">
           <div className={styleTab(activeLink === 'home')}>Home</div>
         </a>

@@ -13,14 +13,12 @@ export const Contacts = () => {
     setContactsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
+  const fadeClass = `${isInViewport ? 'animate-fade-up' : 'opacity-0'} pt-12 sm:py-12`
+
   return (
-    <div
-      ref={contactRef}
-      className={isInViewport ? 'animate-fade-up pt-20' : 'opacity-0 pt-20'}
-      id="contacts"
-    >
+    <div ref={contactRef} className={fadeClass} id="contacts">
       <h2 className="mb-5 text-4xl font-bold text-center">Contacts</h2>
-      <div className="grid px-5 py-5 place-items-center sm:px-0">
+      <div className="grid py-5 place-items-center sm:px-0">
         <div className="text-center">
           <span className="py-2 font-sans text-3xl text-white ">Let's stay in touch.</span>
           <p className="max-w-lg py-2 mt-3 font-sans text-2xl text-gray-300 ">
