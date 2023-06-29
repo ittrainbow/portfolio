@@ -58,75 +58,75 @@ export const icons = {
 export const projects = [
   {
     title: 'Portfolio app',
-    description: 'This app.',
+    description: 'This app',
     stack: 'Typescript, React, Tailwind',
     imgUrl: projImg,
     url: '#',
-    github: '',
+    git: 'https://github.com/ittrainbow/portfolio',
     icons: [icons.typescript, icons.react, icons.tailwindcss]
   },
   {
     title: 'MP3-player',
-    description: 'Android mp3-player APK-file.',
+    description: 'Android mp3-player and APK-build',
     stack: 'Javascript, React Native, Expo SDK',
     imgUrl: projImg,
     url: '',
-    github: 'https://github.com/ittrainbow/player-native',
+    git: 'https://github.com/ittrainbow/player-native',
     icons: [icons.javascript, icons.reactnative, icons.expo],
     apk: 'link'
   },
   {
     title: 'Prediction contest',
-    description: 'Green Bay Packers russian-speaking community prediction contest.',
+    description: 'Packers eastern-european community prediction contest',
     stack: 'Typescript, React, Redux-Saga, Firebase',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/packbet',
+    git: 'https://github.com/ittrainbow/packbet',
     url: 'https://pack-contest.web.app/',
     icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
   },
   {
     title: 'QB Passer rating',
-    description: 'Aaron Rodgers passer rating with DPIs counting as 1st down completions or TDs.',
+    description: 'QB passer rating with DPIs as 1st downs or TDs',
     stack: 'Javascript, React, React Tables, Firebase',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/qb-app',
+    git: 'https://github.com/ittrainbow/qb-app',
     url: 'https://qb-rating-app.web.app/',
     icons: [icons.javascript, icons.react, icons.reacttable, icons.firebase]
   },
   {
     title: 'Task manager',
-    description: 'Job interview test task.',
+    description: 'Job interview test task',
     stack: 'Typescript, React, Redux-Saga, Firebase',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/task-manager',
+    git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
     icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
   },
   {
     title: 'QA process app',
-    description: 'Quality assurance communication app used for some of mentioned projects.',
+    description: 'Quality assurance communication app used for some of mentioned projects',
     stack: 'Javascript, React, Firebase',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/ticketsapp',
+    git: 'https://github.com/ittrainbow/ticketsapp',
     url: 'https://tickets-app-aeeed.web.app/',
     icons: [icons.javascript, icons.react, icons.firebase]
   },
   {
     title: 'Dice game',
-    description: 'Two dice game and APK compiled by Ionic and Capacitor.',
+    description: 'Two dice game and APK compiled by Ionic and Capacitor',
     stack: 'Javascript, CSS',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/dice-react',
+    git: 'https://github.com/ittrainbow/dice-react',
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icons.javascript, icons.css],
     apk: 'link'
   },
   {
     title: 'Mafia app',
-    description: 'Mafia game helper with pomodoro timer and audio player.',
+    description: 'Mafia game helper with pomodoro timer and audio player',
     stack: 'Javascript, React, Firebase',
     imgUrl: projImg,
-    github: 'https://github.com/ittrainbow/mafia-helper',
+    git: 'https://github.com/ittrainbow/mafia-helper',
     url: 'https://circle-38cc7.web.app/',
     icons: [icons.react, icons.firebase]
   }

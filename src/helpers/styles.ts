@@ -3,9 +3,7 @@ export const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300'
 export const fadeClass = (isInViewport: boolean) =>
   `${isInViewport ? 'animate-fade-up' : 'opacity-0'} py-12`
 
-export const navbarTransitionStyle = 'transition-all ease-in-out duration-500'
-
-// desktop
+export const navbarTransitionStyle = 'transition-all ease-in-out'
 
 export const navbarDesktopStyle = (scrolled: boolean) =>
   `${scrolled ? 'bg-gray-800' : ''}  ${
@@ -16,10 +14,8 @@ export const navbarDesktopLinksStyle = (scrolled: boolean) =>
   `${scrolled ? 'h-12' : 'h-20'} ${navbarTransitionStyle} flex flex-row ms-auto items-center`
 
 export const navbarIconStyle = (mobile: boolean, scrolled: boolean) => {
-  return `${!mobile && scrolled ? 'text-3xl' : 'text-3xl'} ${navbarTransitionStyle}`
+  return `${!mobile && scrolled ? 'text-3xl' : 'text-3xl'} ${navbarTransitionStyle} sm:ml-2`
 }
-
-// mobile
 
 export const navbarMobileMenuToggler = (open: boolean, drawNavbar: boolean) =>
   `${
@@ -32,8 +28,6 @@ export const navbarMobileLinksStyle = (open: boolean, drawNavbar: boolean) =>
   `${open ? 'left-0' : `-left-full`} ${navbarTransitionStyle} ${
     drawNavbar ? 'bg-gray-800' : ''
   } bg-opacity-95 fixed z-10 flex flex-col w-full items-center`
-
-// all
 
 export const navbarTabStyle = (link: string, activeLink: string, mobile: boolean) =>
   `${activeLink === link ? 'text-white' : 'text-gray-500'} ${

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, MouseEvent } from 'react'
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from 'react-icons/ai'
-import * as icons from '../helpers/icons'
+import * as icon from '../helpers/icons'
 import {
   navbarDesktopStyle,
   navbarDesktopLinksStyle,
@@ -103,7 +103,7 @@ export const Header = () => {
             >
               {el.replace(/ /g, '\u00A0')}
               {el === 'Github' && !mobile && (
-                <div className={navbarIconStyle(mobile, scrolled)}>{icons.github}</div>
+                <div className={navbarIconStyle(mobile, scrolled)}>{icon.github}</div>
               )}
             </button>
           )

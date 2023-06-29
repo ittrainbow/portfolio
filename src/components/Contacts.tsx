@@ -1,5 +1,5 @@
 import { useRef, useEffect, useContext } from 'react'
-import * as icons from '../helpers/icons'
+import * as icon from '../helpers/icons'
 
 import { useVisibility } from '../hooks/useVisibility'
 import { Context } from '../context/Context'
@@ -27,11 +27,11 @@ export const Contacts = () => {
           </p>
         </div>
         <div className="flex flex-row justify-center gap-3 pt-6 text-5xl ">
-          {icons.telegram}
-          {icons.github}
-          {icons.youtube}
-          {icons.twitter}
-          {icons.mail}
+          {icon.telegram}
+          {icon.github}
+          {icon.youtube}
+          {icon.twitter}
+          {icon.mail}
         </div>
       </div>
     </div>

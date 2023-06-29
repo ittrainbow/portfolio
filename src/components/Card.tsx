@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { BsGithub } from 'react-icons/bs'
-import { FaExternalLinkAlt, FaFileDownload } from 'react-icons/fa'
+import * as icon from '../helpers/icons'
+import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
 
 import { useVisibility } from '../hooks/useVisibility'
 
@@ -14,7 +14,7 @@ type CardPropsType = {
   description: string
   stack: string
   imgUrl: string
-  github: string
+  git: string
   url: string
   icons: IconType[]
   apk?: string
@@ -22,13 +22,12 @@ type CardPropsType = {
 
 const stackStyles =
   'text-4xl font-bold flex flex-row p-2 gap-1 rounded-lg bg-opacity-50 bg-slate-100'
-const linkIconStyles = 'pr-1 cursor-pointer text-slate-900'
 
 export const Card = ({
   title,
   description,
   stack,
-  github,
+  git,
   imgUrl,
   url,
   icons,
@@ -42,10 +41,12 @@ export const Card = ({
       <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
         <div className="relative max-w-md overflow-hidden rounded-3xl proj-imgbx">
           <img src={imgUrl} alt="" />
-          <div className="px-2 min-w-xs proj-txtx">
-            <h4>{title}</h4>
-            <h5>{description}</h5>
-            <div className="grow">{stack}</div>
+          <div className="px-2 py-5 min-w-xs proj-txtx flex flex-col h-full">
+            <div className="flex flex-col grow">
+              <h4 className="mb-3">{title}</h4>
+              <div className="grid place-items-center grow">{description}</div>
+              <div className="grid place-items-center grow">{stack}</div>
+            </div>
             <div className="bottom-0 flex flex-row justify-between mt-3">
               <div>
                 <div className={stackStyles}>
@@ -62,15 +63,9 @@ export const Card = ({
               </div>
               <div>
                 <div className={stackStyles + ' text-right'}>
-                  <a href={apk} className={linkIconStyles}>
-                    {apk && apk.length > 0 && <FaFileDownload />}
-                  </a>
-                  <a href={url} className={linkIconStyles}>
-                    {url && url.length > 0 && <FaExternalLinkAlt />}
-                  </a>
-                  <a href={github} className={linkIconStyles}>
-                    <BsGithub className=" text-slate-950 rounded-3xl" />
-                  </a>
+                  {apk && apk.length > 0 && icon.downloadLink(apk)}
+                  {url && url.length > 0 && icon.externalLink(url)}
+                  {git && git.length > 0 && icon.githubLink(git)}
                 </div>
                 <div className="text-sm">Links</div>
               </div>
