@@ -13,3 +13,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.card-bg::before {
+  content: '';
+  background: #6252be;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s all;
+}
+
+.card-bg:hover::before {
+  opacity: 1;
+}

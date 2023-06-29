@@ -1,78 +1,24 @@
-import {
-  SiTypescript,
-  SiJavascript,
-  SiReduxsaga,
-  SiTailwindcss,
-  SiReact,
-  SiFirebase,
-  SiExpo,
-  SiReacttable,
-  SiCss3
-} from 'react-icons/si'
-
+import * as icon from './icons'
 import projImg from '../assets/web-app.png'
-
-export const icons = {
-  typescript: {
-    icon: <SiTypescript className="text-blue-600 bg-white" />,
-    alt: 'TypeScript'
-  },
-  javascript: {
-    icon: <SiJavascript className="text-yellow-500 bg-black" />,
-    alt: 'JavaScript'
-  },
-  react: {
-    icon: <SiReact className="text-blue-700" />,
-    alt: 'React'
-  },
-  reactnative: {
-    icon: <SiReact className="text-violet-900" />,
-    alt: 'React Native'
-  },
-  reduxsaga: {
-    icon: <SiReduxsaga className="text-emerald-600" />,
-    alt: 'Redux Saga'
-  },
-  reacttable: {
-    icon: <SiReacttable className="text-stone-700" />,
-    alt: 'React Table'
-  },
-  tailwindcss: {
-    icon: <SiTailwindcss className="text-cyan-500" />,
-    alt: 'Tailwind CSS'
-  },
-  css: {
-    icon: <SiCss3 className="text-blue-700" />,
-    alt: 'CSS'
-  },
-  expo: {
-    icon: <SiExpo className="text-gray-900" />,
-    alt: 'Expo SDK'
-  },
-  firebase: {
-    icon: <SiFirebase className="text-orange-500" />,
-    alt: 'Firebase'
-  }
-}
 
 export const projects = [
   {
-    title: 'Portfolio app',
-    description: 'This app',
+    title: 'Portfolio page',
+    description: 'This page',
     stack: 'Typescript, React, Tailwind',
     imgUrl: projImg,
     url: '#',
     git: 'https://github.com/ittrainbow/portfolio',
-    icons: [icons.typescript, icons.react, icons.tailwindcss]
+    icons: [icon.ts, icon.react, icon.tailwind]
   },
   {
-    title: 'MP3-player',
+    title: 'React Native player',
     description: 'Android mp3-player and APK-build',
     stack: 'Javascript, React Native, Expo SDK',
     imgUrl: projImg,
     url: '',
     git: 'https://github.com/ittrainbow/player-native',
-    icons: [icons.javascript, icons.reactnative, icons.expo],
+    icons: [icon.js, icon.reactNative, icon.expo],
     apk: 'link'
   },
   {
@@ -82,7 +28,7 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/packbet',
     url: 'https://pack-contest.web.app/',
-    icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
+    icons: [icon.ts, icon.react, icon.saga, icon.firebase]
   },
   {
     title: 'QB Passer rating',
@@ -91,7 +37,7 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/qb-app',
     url: 'https://qb-rating-app.web.app/',
-    icons: [icons.javascript, icons.react, icons.reacttable, icons.firebase]
+    icons: [icon.js, icon.react, icon.reactTable, icon.firebase]
   },
   {
     title: 'Task manager',
@@ -100,7 +46,7 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
-    icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
+    icons: [icon.ts, icon.react, icon.saga, icon.firebase]
   },
   {
     title: 'QA process app',
@@ -109,7 +55,7 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/ticketsapp',
     url: 'https://tickets-app-aeeed.web.app/',
-    icons: [icons.javascript, icons.react, icons.firebase]
+    icons: [icon.js, icon.react, icon.firebase]
   },
   {
     title: 'Dice game',
@@ -118,7 +64,7 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/dice-react',
     url: 'https://gentle-fox-d0d62c.netlify.app/',
-    icons: [icons.javascript, icons.css],
+    icons: [icon.js, icon.css],
     apk: 'link'
   },
   {
@@ -128,6 +74,6 @@ export const projects = [
     imgUrl: projImg,
     git: 'https://github.com/ittrainbow/mafia-helper',
     url: 'https://circle-38cc7.web.app/',
-    icons: [icons.react, icons.firebase]
+    icons: [icon.react, icon.firebase]
   }
 ]

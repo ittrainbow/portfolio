@@ -6,12 +6,12 @@ import { Context } from '../context/Context'
 
 export const Contacts = () => {
   const contactRef = useRef<HTMLDivElement>(null)
-  const isInViewport = useVisibility(contactRef)
+  const isHeaderInViewport = useVisibility(contactRef)
   const { contactsInViewport, setContactsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setContactsInViewport(isInViewport) // eslint-disable-next-line
-  }, [isInViewport])
+    setContactsInViewport(isHeaderInViewport) // eslint-disable-next-line
+  }, [isHeaderInViewport])
 
   const fadeClass = `${contactsInViewport ? 'animate-fade-up' : 'opacity-0'} pt-12 sm:py-12 `
 

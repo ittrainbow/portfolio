@@ -1,5 +1,3 @@
-import './App.css'
-// import './styles/styles.css'
 import { Header, Home, Projects, About, Footer, Contacts } from './components'
 
 const App = () => {

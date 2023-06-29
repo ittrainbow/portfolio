@@ -52,10 +52,10 @@ export const Header = () => {
   }, [])
 
   useEffect(() => {
-    homeInViewport && setActiveLink('home')
-    projectsInViewport && setActiveLink('projects')
-    aboutInViewport && setActiveLink('aboutme')
     contactsInViewport && setActiveLink('contacts')
+    aboutInViewport && setActiveLink('aboutme')
+    projectsInViewport && setActiveLink('projects')
+    homeInViewport && setActiveLink('home')
   }, [homeInViewport, projectsInViewport, aboutInViewport, contactsInViewport])
 
   const smoothScroll = (e: MouseEvent) => {

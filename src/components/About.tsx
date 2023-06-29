@@ -8,13 +8,16 @@ import { pStyle } from '../helpers/styles'
 export const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
   const isInViewport = useVisibility(aboutRef)
-  const { aboutInViewport, setAboutInViewport } = useContext(Context)
+  const { aboutInViewport, projectsInViewport, setAboutInViewport, setProjectsInViewport } =
+    useContext(Context)
 
   useEffect(() => {
-    setAboutInViewport(isInViewport) // eslint-disable-next-line
+    !aboutInViewport && projectsInViewport && isInViewport && setProjectsInViewport(false)
+    setAboutInViewport(isInViewport)
+    // eslint-disable-next-line
   }, [isInViewport])
 
-  const fadeClass = `${aboutInViewport ? 'animate-fade-up' : 'opacity-0'} py-16`
+  const fadeClass = `${aboutInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'} py-16`
 
   return (
     <div ref={aboutRef} className={fadeClass} id="aboutme">

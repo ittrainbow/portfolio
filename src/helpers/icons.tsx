@@ -1,5 +1,18 @@
 import { BsTelegram, BsGithub } from 'react-icons/bs'
-import { SiYoutube, SiTwitter, SiMaildotru } from 'react-icons/si'
+import {
+  SiYoutube,
+  SiTwitter,
+  SiMaildotru,
+  SiTypescript,
+  SiJavascript,
+  SiReduxsaga,
+  SiTailwindcss,
+  SiReact,
+  SiFirebase,
+  SiExpo,
+  SiReacttable,
+  SiCss3
+} from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
 
 const linkIconStyles = 'pr-1 cursor-pointer text-slate-900'
@@ -15,21 +28,17 @@ export const githubLink = (link: string) => (
   </a>
 )
 
-export const externalLink = (url: string) => {
-  return (
-    <a href={url} className={linkIconStyles}>
-      {url && url.length > 0 && <FaExternalLinkSquareAlt />}
-    </a>
-  )
-}
+export const externalLink = (url: string) => (
+  <a href={url} className={linkIconStyles}>
+    {url && url.length > 0 && <FaExternalLinkSquareAlt />}
+  </a>
+)
 
-export const downloadLink = (apk: string) => {
-  return (
-    <a href={apk} className={linkIconStyles}>
-      {apk && apk.length > 0 && <FaFileDownload />}
-    </a>
-  )
-}
+export const downloadLink = (apk: string) => (
+  <a href={apk} className={linkIconStyles}>
+    {apk && apk.length > 0 && <FaFileDownload />}
+  </a>
+)
 
 export const telegram = (
   <a href="https://t.me/ittrainbow">
@@ -57,3 +66,23 @@ export const mail = (
     <SiMaildotru className="text-orange-300" />
   </button>
 )
+
+export const ts = <SiTypescript className="text-blue-600 bg-white" />
+
+export const js = <SiJavascript className="text-yellow-500 bg-black" />
+
+export const react = <SiReact className="text-blue-700" />
+
+export const reactNative = <SiReact className="text-violet-900" />
+
+export const saga = <SiReduxsaga className="text-emerald-600" />
+
+export const reactTable = <SiReacttable className="text-stone-700" />
+
+export const tailwind = <SiTailwindcss className="text-cyan-600" />
+
+export const css = <SiCss3 className="text-blue-700" />
+
+export const expo = <SiExpo className="text-gray-900" />
+
+export const firebase = <SiFirebase className="text-orange-500" />

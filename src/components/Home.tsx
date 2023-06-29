@@ -9,12 +9,14 @@ import { pStyle } from '../helpers/styles'
 export const Home = () => {
   const { homeInViewport, setHomeInViewport, mobile } = useContext(Context)
   const [hover, setHover] = useState<boolean>(false)
-  const greetingRef = useRef(null)
-  const isInViewport = useVisibility(greetingRef)
+  const homeRef = useRef<HTMLDivElement>(null)
+  const homeHeaderRef = useRef<HTMLDivElement>(null)
+  const isHomeInViewport = useVisibility(homeRef)
+  const isHomeHeaderInViewport = useVisibility(homeHeaderRef)
 
   useEffect(() => {
-    setHomeInViewport(isInViewport) // eslint-disable-next-line
-  }, [isInViewport])
+    setHomeInViewport(isHomeInViewport) // eslint-disable-next-line
+  }, [isHomeInViewport])
 
   const smoothScroll = () =>
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -23,18 +25,22 @@ export const Home = () => {
     hover ? 'ml-8' : 'ml-3'
   } `
 
-  const fadeClass = `${homeInViewport ? 'animate-fade-up' : 'opacity-0'} ${
+  const fadeHomeClass = `${homeInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'} ${
     mobile ? 'pt-12' : 'pt-24'
   } pb-16`
 
+  const fadeTextClass = `${
+    isHomeInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'
+  } grid text-center place-items-center sm:place-items-start sm:col-span-3 sm:text-left"`
+
   return (
-    <div ref={greetingRef} className={fadeClass} id="home">
+    <div className={fadeHomeClass} id="home">
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
-          <div className="grid text-center place-items-center sm:place-items-start sm:col-span-3 sm:text-left">
-            <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
-            <p className={pStyle}>Front-end developer.</p>
-            <p className={pStyle}>
+          <div  className={fadeTextClass}>
+            <div ref={homeHeaderRef} className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
+            <div className={pStyle}>Front-end developer.</div>
+            <p ref={homeRef}  className={pStyle}>
               Gratuated from Bauman Moscow State Technical University. Spent 10 years working as
               electronics engineer, my high school specialization. Also experienced as technical
               support specialist and network administrator.

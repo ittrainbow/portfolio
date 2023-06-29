@@ -1,13 +1,8 @@
-import { useRef } from 'react'
+import { useContext, useRef, useEffect } from 'react'
+
 import * as icon from '../helpers/icons'
-import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
-
 import { useVisibility } from '../hooks/useVisibility'
-
-type IconType = {
-  alt: string
-  icon: JSX.Element
-}
+import { Context } from '../context/Context'
 
 type CardPropsType = {
   title: string
@@ -16,7 +11,7 @@ type CardPropsType = {
   imgUrl: string
   git: string
   url: string
-  icons: IconType[]
+  icons: JSX.Element[]
   apk?: string
 }
 
@@ -35,31 +30,42 @@ export const Card = ({
 }: CardPropsType) => {
   const cardRef = useRef<HTMLDivElement>(null)
   const isInViewport = useVisibility(cardRef)
+  const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } =
+    useContext(Context)
+
+  useEffect(() => {
+    !aboutInViewport &&
+      !homeInViewport &&
+      !projectsInViewport &&
+      isInViewport &&
+      setProjectsInViewport(isInViewport)
+  }, [isInViewport])
+
+  const onHover = `hover:top-1/2 hover:opacity-95`
+  const transitionClass = `transition-all duration-500 ease-in-out`
+  const cardContentClass = `${onHover} ${transitionClass} px-2 py-5 min-w-xs -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col h-full opacity-0 w-11/12 min-w-[300px]`
+  const cardBgClass = `${onHover} ${transitionClass} relative max-w-md overflow-hidden rounded-3xl card-bg`
+  const textClass = 'text-sm text-center opacity-70 mt-1'
 
   return (
     <div ref={cardRef}>
       <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
-        <div className="relative max-w-md overflow-hidden rounded-3xl proj-imgbx">
+        <div className={cardBgClass}>
           <img src={imgUrl} alt="" />
-          <div className="px-2 py-5 min-w-xs proj-txtx flex flex-col h-full">
-            <div className="flex flex-col grow">
-              <h4 className="mb-3">{title}</h4>
-              <div className="grid place-items-center grow">{description}</div>
+          <div className={cardContentClass}>
+            <div className="flex flex-col grow text-center ">
+              <h4 className="text-2xl font-bold mb-3">{title}</h4>
+              <div className="grid place-items-center grow text-lg">{description}</div>
               <div className="grid place-items-center grow">{stack}</div>
             </div>
             <div className="bottom-0 flex flex-row justify-between mt-3">
               <div>
                 <div className={stackStyles}>
-                  {icons.map((el: IconType, index: number) => {
-                    const { icon, alt } = el
-                    return (
-                      <div key={index} title={alt}>
-                        {icon}
-                      </div>
-                    )
+                  {icons.map((el: JSX.Element, index: number) => {
+                    return <div key={index}>{el}</div>
                   })}
                 </div>
-                <div className="text-sm">Stack</div>
+                <div className={textClass}>Tech</div>
               </div>
               <div>
                 <div className={stackStyles + ' text-right'}>
@@ -67,7 +73,7 @@ export const Card = ({
                   {url && url.length > 0 && icon.externalLink(url)}
                   {git && git.length > 0 && icon.githubLink(git)}
                 </div>
-                <div className="text-sm">Links</div>
+                <div className={textClass}>Links</div>
               </div>
             </div>
           </div>
