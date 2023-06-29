@@ -10,9 +10,7 @@ import {
   SiCss3
 } from 'react-icons/si'
 
-import projImg1 from '../assets/img/project-img1.png'
-import projImg2 from '../assets/img/project-img2.png'
-import projImg3 from '../assets/img/project-img3.png'
+import projImg from '../assets/web-app.png'
 
 export const icons = {
   typescript: {
@@ -62,7 +60,7 @@ export const projects = [
     title: 'Portfolio app',
     description: 'This app.',
     stack: 'Typescript, React, Tailwind',
-    imgUrl: projImg1,
+    imgUrl: projImg,
     url: '#',
     github: '',
     icons: [icons.typescript, icons.react, icons.tailwindcss]
@@ -71,7 +69,7 @@ export const projects = [
     title: 'MP3-player',
     description: 'Android mp3-player APK-file.',
     stack: 'Javascript, React Native, Expo SDK',
-    imgUrl: projImg2,
+    imgUrl: projImg,
     url: '',
     github: 'https://github.com/ittrainbow/player-native',
     icons: [icons.javascript, icons.reactnative, icons.expo],
@@ -81,7 +79,7 @@ export const projects = [
     title: 'Prediction contest',
     description: 'Green Bay Packers russian-speaking community prediction contest.',
     stack: 'Typescript, React, Redux-Saga, Firebase',
-    imgUrl: projImg3,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/packbet',
     url: 'https://pack-contest.web.app/',
     icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
@@ -90,7 +88,7 @@ export const projects = [
     title: 'QB Passer rating',
     description: 'Aaron Rodgers passer rating with DPIs counting as 1st down completions or TDs.',
     stack: 'Javascript, React, React Tables, Firebase',
-    imgUrl: projImg1,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/qb-app',
     url: 'https://qb-rating-app.web.app/',
     icons: [icons.javascript, icons.react, icons.reacttable, icons.firebase]
@@ -99,7 +97,7 @@ export const projects = [
     title: 'Task manager',
     description: 'Job interview test task.',
     stack: 'Typescript, React, Redux-Saga, Firebase',
-    imgUrl: projImg2,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
     icons: [icons.typescript, icons.react, icons.reduxsaga, icons.firebase]
@@ -108,7 +106,7 @@ export const projects = [
     title: 'QA process app',
     description: 'Quality assurance communication app used for some of mentioned projects.',
     stack: 'Javascript, React, Firebase',
-    imgUrl: projImg3,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/ticketsapp',
     url: 'https://tickets-app-aeeed.web.app/',
     icons: [icons.javascript, icons.react, icons.firebase]
@@ -117,7 +115,7 @@ export const projects = [
     title: 'Dice game',
     description: 'Two dice game and APK compiled by Ionic and Capacitor.',
     stack: 'Javascript, CSS',
-    imgUrl: projImg3,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/dice-react',
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icons.javascript, icons.css],
@@ -127,7 +125,7 @@ export const projects = [
     title: 'Mafia app',
     description: 'Mafia game helper with pomodoro timer and audio player.',
     stack: 'Javascript, React, Firebase',
-    imgUrl: projImg3,
+    imgUrl: projImg,
     github: 'https://github.com/ittrainbow/mafia-helper',
     url: 'https://circle-38cc7.web.app/',
     icons: [icons.react, icons.firebase]
