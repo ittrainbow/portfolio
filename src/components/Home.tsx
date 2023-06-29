@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import headerImg from '../assets/img/header-img.svg'
+import blackHole from '../assets/blackhole.png'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
 import { Context } from '../context/Context'
@@ -54,7 +54,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <img src={headerImg} alt="Header Img" />
+            <img src={blackHole} alt="Header Img" />
           </div>
         </div>
       </div>

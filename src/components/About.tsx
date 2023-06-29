@@ -1,6 +1,6 @@
 import { useRef, useEffect, useContext } from 'react'
 
-import ittr from '../assets/img/ittr-min.png'
+import ittr from '../assets/ittr-min.png'
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
 import { pStyle } from '../helpers/styles'

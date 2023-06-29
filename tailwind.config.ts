@@ -18,7 +18,7 @@ module.exports = {
         'fade-in': 'fadeIn .7s ease-in-out'
       },
       backgroundImage: {
-        'space': "url('./assets/img/carbon-min.png')"
+        'space': "url('./assets/carbon-min.png')"
       }
     }
   },
