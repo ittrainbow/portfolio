@@ -53,7 +53,7 @@ export const Home = () => {
               <FiArrowRightCircle size={30} className={buttonStyle} />
             </div>
           </div>
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 grid place-items-center">
             <img src={blackHole} alt="Header Img" />
           </div>
         </div>

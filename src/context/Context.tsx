@@ -24,7 +24,7 @@ export const ContextProvider = ({ children }: ContextChildren) => {
   const [aboutInViewport, setAboutInViewport] = useState<boolean>(false)
   const [contactsInViewport, setContactsInViewport] = useState<boolean>(false)
   const [projectsInViewport, setProjectsInViewport] = useState<boolean>(false)
-  const [mobile, setMobile] = useState<boolean>(false)
+  const [mobile, setMobile] = useState<boolean>(true)
 
   useEffect(() => {
     setMobile(isMobile)

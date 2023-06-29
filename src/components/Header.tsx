@@ -18,28 +18,38 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState<string>('home')
   const [open, setOpen] = useState<boolean>(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
-  const [scrolling, setScrolling] = useState<boolean>(false)
+  const [drawNavbar, setDrawNavbar] = useState<boolean>(false)
+
+  useEffect(() => {
+    const onPageLoad = () => {
+      setTimeout(() => setDrawNavbar(true), 500)
+      window.removeEventListener('load', onPageLoad)
+    }
+
+    document.readyState === 'complete' && onPageLoad()
+    window.addEventListener('load', onPageLoad, false)
+  }, [])
 
   useEffect(() => {
     const listener = () => {
       const y1 = window.scrollY
       setTimeout(() => {
         const y2 = window.scrollY
-        y2 !== y1 && !scrolling && setScrolling(true)
-        y2 === y1 && scrolling && setScrolling(false)
+        y2 !== y1 && drawNavbar && mobile && setDrawNavbar(false)
+        y2 === y1 && !drawNavbar && mobile && setDrawNavbar(true)
       }, 1000)
     }
     window.addEventListener('scroll', listener)
     return () => window.removeEventListener('scroll', listener)
-  }, [scrolling])
+  }, [drawNavbar])
 
-  window.onscroll = () => !scrolling && setScrolling(true)
+  window.onscroll = () => drawNavbar && setDrawNavbar(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  })
+  }, [])
 
   useEffect(() => {
     homeInViewport && setActiveLink('home')
@@ -67,7 +77,7 @@ export const Header = () => {
   return (
     <div className={mobile ? '' : navbarDesktopStyle(scrolled)}>
       {mobile ? (
-        <div className={navbarMobileMenuToggler(open, scrolling)}>
+        <div className={navbarMobileMenuToggler(open, drawNavbar)}>
           {open ? (
             <AiOutlineDoubleLeft onClick={() => setOpen(false)} />
           ) : (
@@ -77,7 +87,11 @@ export const Header = () => {
       ) : (
         ''
       )}
-      <div className={mobile ? navbarMobileLinksStyle(open) : navbarDesktopLinksStyle(scrolled)}>
+      <div
+        className={
+          mobile ? navbarMobileLinksStyle(open, drawNavbar) : navbarDesktopLinksStyle(scrolled)
+        }
+      >
         {tabs.map((el, index) => {
           const link = el.replace(/\s+/g, '').toLowerCase()
 
