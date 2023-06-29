@@ -38,7 +38,7 @@ export const Card = ({
   const isInViewport = useVisibility(cardRef)
 
   return (
-    <div ref={cardRef} className="relative max-w-md mb-16 overflow-hidden rounded-3xl proj-imgbx">
+    <div ref={cardRef} className="relative max-w-md overflow-hidden rounded-3xl proj-imgbx">
       <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
         <img src={imgUrl} alt=""/>
         <div className="px-2 min-w-xs proj-txtx">

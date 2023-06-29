@@ -7,27 +7,25 @@ import { useVisibility } from '../hooks/useVisibility'
 
 export const Projects = () => {
   const projectsRef = useRef<HTMLDivElement>(null)
+
   const isInViewport = useVisibility(projectsRef)
-  const { setProjectsInViewport } = useContext(Context)
+  const { projectsInViewport, setProjectsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setProjectsInViewport(isInViewport)
-    // eslint-disable-next-line
+    setProjectsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
-  const headerStyle = `${
-    isInViewport ? 'animate-fade-up' : 'opacity-0'
-  } text-4xl font-bold text-center mb-16`
+  const fadeClass = `${
+    projectsInViewport ? 'animate-fade-up' : 'opacity-0'
+  } mb-5 text-4xl font-bold text-center`
 
   return (
-    <div
-      ref={projectsRef}
-      className={isInViewport ? 'animate-fade-up pt-20' : 'opacity-0 pt-20'}
-      id="projects"
-    >
-      <h2 className={headerStyle}>My Projects</h2>
-      <div className="grid place-items-center">
-        <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-2">
+    <div className="py-16" id="projects">
+      <h2 ref={projectsRef} className={fadeClass}>
+        My Projects
+      </h2>
+      <div className="grid py-5 place-items-center">
+        <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => {
             return (
               <div key={index} className="grid place-items-center">

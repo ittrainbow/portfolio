@@ -8,19 +8,17 @@ import { pStyle } from '../helpers/styles'
 export const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
   const isInViewport = useVisibility(aboutRef)
-  const { setAboutInViewport } = useContext(Context)
+  const { aboutInViewport, setAboutInViewport } = useContext(Context)
 
   useEffect(() => {
     setAboutInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
+  const fadeClass = `${aboutInViewport ? 'animate-fade-up' : 'opacity-0'} py-16`
+
   return (
-    <div
-      ref={aboutRef}
-      className={isInViewport ? 'animate-fade-up pt-20' : 'opacity-0 pt-20'}
-      id="about"
-    >
-      <h2 className="py-5 text-4xl font-bold text-center">About me</h2>
+    <div ref={aboutRef} className={fadeClass} id="aboutme">
+      <h2 className="mb-5 text-4xl font-bold text-center">About me</h2>
       <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-7">
           <div className="text-center sm:col-span-4 sm:text-left">
@@ -42,7 +40,7 @@ export const About = () => {
             </p>
           </div>
           <div className="sm:col-span-3">
-            <img src={ittr} alt=""/>
+            <img src={ittr} alt="" />
           </div>
         </div>
       </div>
