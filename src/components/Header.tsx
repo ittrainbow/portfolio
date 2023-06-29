@@ -1,71 +1,99 @@
-import { useState, useEffect, useContext } from 'react'
-import { BsTelegram, BsGithub } from 'react-icons/bs'
-import { isMobile } from 'react-device-detect'
+import { useState, useEffect, useContext, MouseEvent } from 'react'
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from 'react-icons/ai'
+import * as icons from '../helpers/icons'
+import {
+  navbarDesktopStyle,
+  navbarDesktopLinksStyle,
+  navbarMobileLinksStyle,
+  navbarMobileMenuToggler,
+  navbarTabStyle,
+  navbarIconStyle
+} from '../helpers/styles'
 
 import { Context } from '../context/Context'
 
-console.log(1, isMobile)
-
 export const Header = () => {
-  const { greetingInViewport, projectsInViewport, aboutInViewport, contactsInViewport } =
+  const { homeInViewport, projectsInViewport, aboutInViewport, contactsInViewport, mobile } =
     useContext(Context)
-  const [activeLink, setActiveLink] = useState('home')
-  const [scrolled, setScrolled] = useState(false)
+  const [activeLink, setActiveLink] = useState<string>('home')
+  const [open, setOpen] = useState<boolean>(false)
+  const [scrolled, setScrolled] = useState<boolean>(false)
+  const [scrolling, setScrolling] = useState<boolean>(false)
+
+  useEffect(() => {
+    const listener = () => {
+      const y1 = window.scrollY
+      setTimeout(() => {
+        const y2 = window.scrollY
+        y2 !== y1 && !scrolling && setScrolling(true)
+        y2 === y1 && scrolling && setScrolling(false)
+      }, 1000)
+    }
+    window.addEventListener('scroll', listener)
+    return () => window.removeEventListener('scroll', listener)
+  }, [scrolling])
+
+  window.onscroll = () => !scrolling && setScrolling(true)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  })
 
   useEffect(() => {
-    greetingInViewport && setActiveLink('home')
+    homeInViewport && setActiveLink('home')
     projectsInViewport && setActiveLink('projects')
-    aboutInViewport && setActiveLink('about')
+    aboutInViewport && setActiveLink('aboutme')
     contactsInViewport && setActiveLink('contacts')
-  }, [greetingInViewport, projectsInViewport, aboutInViewport, contactsInViewport])
+  }, [homeInViewport, projectsInViewport, aboutInViewport, contactsInViewport])
 
-  const styleTransition = 'transition-all ease-in-out duration-400 mr-5'
+  const smoothScroll = (e: MouseEvent) => {
+    const button = e.currentTarget as HTMLButtonElement
+    const link = button.textContent?.replace(/\s+/g, '').toLowerCase() as string
+    e.preventDefault()
+    mobile && setOpen(false)
 
-  const styleScrolled = `p-0 fixed px-4 w-full z-10 ${scrolled ? 'bg-gray-800' : ''}  ${
-    scrolled ? 'bg-opacity-95' : 'bg-opacity-0'
-  } ease-in flex flex-row items-center ${styleTransition}`
+    if (link !== 'github') {
+      const anchor = document.getElementById(link)
+      anchor?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      window.location.href = 'https://github.com/ittrainbow'
+    }
+  }
 
-  const styleLinks = `${
-    scrolled ? 'h-12' : 'h-20'
-  } flex flex-row mr-5 ms-auto items-center ${styleTransition}`
-
-  const styleTab = (activeLink: boolean) =>
-    `${activeLink ? 'text-white' : 'text-gray-500'} ${styleTransition} text-2xl mr-5 items-center`
-
-  const styleIcons = `${
-    scrolled ? 'text-3xl' : 'text-5xl'
-  } ${styleTransition} flex justify-center gap-2 w-20 `
-  
+  const tabs = ['Home', 'Projects', 'About me', 'Contacts', 'Github']
 
   return (
-    <div className={styleScrolled}>
-      <div className={styleLinks}>
-        <a href="#home">
-          <div className={styleTab(activeLink === 'home')}>Home</div>
-        </a>
-        <a href="#projects">
-          <div className={styleTab(activeLink === 'projects')}> Projects</div>
-        </a>
-        <a href="#about">
-          <div className={styleTab(activeLink === 'about')}>About Me</div>
-        </a>
-        <a href="#contacts">
-          <div className={styleTab(activeLink === 'contacts')}>Contacts</div>
-        </a>
-      </div>
-      <div className={styleIcons}>
-        <a href="https://github.com/ittrainbow">
-          <BsGithub className="text-gray-200 cursor-pointer bg-zinc-950 rounded-3xl" />
-        </a>
-        <a href="https://t.me/ittrainbow">
-          <BsTelegram className="bg-white cursor-pointer rounded-3xl text-sky-500" />
-        </a>
+    <div className={mobile ? '' : navbarDesktopStyle(scrolled)}>
+      {mobile ? (
+        <div className={navbarMobileMenuToggler(open, scrolling)}>
+          {open ? (
+            <AiOutlineDoubleLeft onClick={() => setOpen(false)} />
+          ) : (
+            <AiOutlineDoubleRight onClick={() => setOpen(true)} />
+          )}
+        </div>
+      ) : (
+        ''
+      )}
+      <div className={mobile ? navbarMobileLinksStyle(open) : navbarDesktopLinksStyle(scrolled)}>
+        {tabs.map((el, index) => {
+          const link = el.replace(/\s+/g, '').toLowerCase()
+
+          return (
+            <button
+              key={index}
+              className={navbarTabStyle(link, activeLink, mobile)}
+              onClick={smoothScroll}
+            >
+              {el.replace(/ /g, '\u00A0')}
+              {el === 'Github' && !mobile && (
+                <div className={navbarIconStyle(mobile, scrolled)}>{icons.github}</div>
+              )}
+            </button>
+          )
+        })}
       </div>
     </div>
   )

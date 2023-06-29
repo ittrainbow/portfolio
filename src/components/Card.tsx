@@ -39,7 +39,7 @@ export const Card = ({
 
   return (
     <div ref={cardRef} className="relative max-w-md overflow-hidden rounded-3xl proj-imgbx">
-      <div className={isInViewport ? 'sm:animate-fade-up' : 'opacity-0'}>
+      <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
         <img src={imgUrl} alt=""/>
         <div className="px-2 min-w-xs proj-txtx">
           <h4>{title}</h4>

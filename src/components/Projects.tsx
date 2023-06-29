@@ -6,27 +6,25 @@ import { projects } from '../helpers/projects'
 import { useVisibility } from '../hooks/useVisibility'
 
 export const Projects = () => {
-  const componentRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLDivElement>(null)
-  const isComponentInViewport = useVisibility(componentRef)
-  const isTitleInViewport = useVisibility(titleRef)
-  const { setProjectsInViewport } = useContext(Context)
+  const projectsRef = useRef<HTMLDivElement>(null)
+
+  const isInViewport = useVisibility(projectsRef)
+  const { projectsInViewport, setProjectsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setProjectsInViewport(isComponentInViewport) // eslint-disable-next-line
-  }, [isComponentInViewport])
+    setProjectsInViewport(isInViewport) // eslint-disable-next-line
+  }, [isInViewport])
 
-  const fadeComponentClass = `${isComponentInViewport ? 'animate-fade-up' : 'opacity-0'} py-16`
-  const fadeTitleClass = `${
-    isTitleInViewport ? 'animate-fade-up' : 'opacity-0'
+  const fadeClass = `${
+    projectsInViewport ? 'animate-fade-up' : 'opacity-0'
   } mb-5 text-4xl font-bold text-center`
 
   return (
-    <div ref={componentRef} className={fadeComponentClass} id="projects">
-      <h2 ref={titleRef} className={fadeTitleClass}>
+    <div className="py-16" id="projects">
+      <h2 ref={projectsRef} className={fadeClass}>
         My Projects
       </h2>
-      <div className="grid place-items-center py-5">
+      <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => {
             return (

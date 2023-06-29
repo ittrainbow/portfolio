@@ -1,11 +1,11 @@
 import './App.css'
-import { Header, Greeting, Projects, About, Footer, Contacts } from './components'
+import { Header, Home, Projects, About, Footer, Contacts } from './components'
 
 const App = () => {
   return (
     <div className="gap-2 bg-black text-slate-100 scroll-pt-20 scroll-smooth bg-space">
       <Header />
-      <Greeting />
+      <Home />
       <Projects />
       <About />
       <Contacts />

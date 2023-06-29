@@ -1,14 +1,16 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
+import { createContext, Dispatch, SetStateAction, useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 type ContextType = {
-  greetingInViewport: boolean
-  setGreetingInViewport: Dispatch<SetStateAction<boolean>>
+  homeInViewport: boolean
+  setHomeInViewport: Dispatch<SetStateAction<boolean>>
   aboutInViewport: boolean
   setAboutInViewport: Dispatch<SetStateAction<boolean>>
   projectsInViewport: boolean
   setProjectsInViewport: Dispatch<SetStateAction<boolean>>
   contactsInViewport: boolean
   setContactsInViewport: Dispatch<SetStateAction<boolean>>
+  mobile: boolean
 }
 
 type ContextChildren = {
@@ -18,22 +20,28 @@ type ContextChildren = {
 export const Context = createContext({} as ContextType)
 
 export const ContextProvider = ({ children }: ContextChildren) => {
-  const [greetingInViewport, setGreetingInViewport] = useState<boolean>(true)
+  const [homeInViewport, setHomeInViewport] = useState<boolean>(true)
   const [aboutInViewport, setAboutInViewport] = useState<boolean>(false)
   const [contactsInViewport, setContactsInViewport] = useState<boolean>(false)
   const [projectsInViewport, setProjectsInViewport] = useState<boolean>(false)
+  const [mobile, setMobile] = useState<boolean>(false)
+
+  useEffect(() => {
+    setMobile(isMobile)
+  }, [])
 
   return (
     <Context.Provider
       value={{
-        greetingInViewport,
-        setGreetingInViewport,
+        homeInViewport,
+        setHomeInViewport,
         aboutInViewport,
         setAboutInViewport,
         contactsInViewport,
         setContactsInViewport,
         projectsInViewport,
-        setProjectsInViewport
+        setProjectsInViewport,
+        mobile
       }}
     >
       {children}
