@@ -43,9 +43,9 @@ export const Card = ({
 
   const onHover = `hover:top-1/2 hover:opacity-95`
   const transitionClass = `transition-all duration-500 ease-in-out`
-  const cardContentClass = `${onHover} ${transitionClass} px-2 py-5 min-w-xs -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col h-full opacity-0 w-11/12 min-w-[300px]`
-  const cardBgClass = `${onHover} ${transitionClass} relative max-w-md overflow-hidden rounded-3xl card-bg`
-  const textClass = 'text-sm text-center opacity-70 mt-1'
+  const cardContentClass = `${onHover} ${transitionClass} px-2 py-5 min-w-xs -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col h-full opacity-0 w-full min-w-[300px]`
+  const cardBgClass = `${onHover} ${transitionClass} relative max-w-md overflow-hidden rounded-xl card-bg`
+  const subClass = 'text-sm text-center opacity-70 mt-1'
 
   return (
     <div ref={cardRef}>
@@ -53,19 +53,19 @@ export const Card = ({
         <div className={cardBgClass}>
           <img src={imgUrl} alt="" />
           <div className={cardContentClass}>
-            <div className="flex flex-col grow text-center ">
-              <h4 className="text-3xl font-bold grid place-items-center grow">{title}</h4>
-              <div className="text-xl grid place-items-center grow">{description}</div>
-              <div className="text-xl grid place-items-center grow">{stack}</div>
+            <div className="flex flex-col text-center grow ">
+              <h4 className="grid px-5 mb-2 text-3xl font-bold place-items-center grow">{title}</h4>
+              <div className="grid px-5 text-lg place-items-center grow">{description}</div>
+              <div className="grid px-5 text-xl place-items-center grow">{stack}</div>
             </div>
-            <div className="bottom-0 flex flex-row justify-between mt-3">
+            <div className="bottom-0 flex flex-row justify-between px-4 mt-3">
               <div>
                 <div className={stackStyles}>
                   {icons.map((el: JSX.Element, index: number) => {
                     return <div key={index}>{el}</div>
                   })}
                 </div>
-                <div className={textClass}>Tech</div>
+                <div className={subClass}>Tech</div>
               </div>
               <div>
                 <div className={stackStyles + ' text-right'}>
@@ -73,7 +73,7 @@ export const Card = ({
                   {url && url.length > 0 && icon.externalLink(url)}
                   {git && git.length > 0 && icon.githubLink(git)}
                 </div>
-                <div className={textClass}>Links</div>
+                <div className={subClass}>Links</div>
               </div>
             </div>
           </div>
