@@ -1,12 +1,12 @@
 import * as icon from './icons'
-import dices from '../assets/dices-min.png'
-import landing from '../assets/landing-min.png'
-import mafia from '../assets/mafia-min.png'
-import packers from '../assets/packers-min.png'
-import player from '../assets/player-min.png'
-import qb from '../assets/qb-min.png'
-import taskmanager from '../assets/taskmanager-min.png'
-import tickets from '../assets/tickets-min.png'
+import dices from '../assets/dices.jpg'
+import landing from '../assets/landing.jpg'
+import mafia from '../assets/mafia.jpg'
+import packers from '../assets/packers.jpg'
+import player from '../assets/player.jpg'
+import qb from '../assets/qb.jpg'
+import taskmanager from '../assets/taskmanager.jpg'
+import tickets from '../assets/tickets.jpg'
 
 export const apps = [
   {

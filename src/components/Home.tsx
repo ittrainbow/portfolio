@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import home from '../assets/home-min.png'
+import home from '../assets/home.png'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
 import { Context } from '../context/Context'

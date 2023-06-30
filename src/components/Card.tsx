@@ -35,7 +35,7 @@ export const Card = ({
   const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } =
     useContext(Context)
   const storage = getStorage(app)
-  const [downloadUrl, setDownloadUrl] = useState<any>(null)
+  const [downloadUrl, setDownloadUrl] = useState<string>('')
 
   useEffect(() => {
     !aboutInViewport &&
