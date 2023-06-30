@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import blackHole from '../assets/blackhole.png'
+import home from '../assets/home-min.png'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
 import { Context } from '../context/Context'
@@ -12,7 +12,6 @@ export const Home = () => {
   const homeRef = useRef<HTMLDivElement>(null)
   const homeHeaderRef = useRef<HTMLDivElement>(null)
   const isHomeInViewport = useVisibility(homeRef)
-  const isHomeHeaderInViewport = useVisibility(homeHeaderRef)
 
   useEffect(() => {
     setHomeInViewport(isHomeInViewport) // eslint-disable-next-line
@@ -37,10 +36,12 @@ export const Home = () => {
     <div className={fadeHomeClass} id="home">
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
-          <div  className={fadeTextClass}>
-            <div ref={homeHeaderRef} className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
+          <div className={fadeTextClass}>
+            <div ref={homeHeaderRef} className="py-2 font-sans text-3xl text-white">
+              I'm Andrey Gordienko
+            </div>
             <div className={pStyle}>Front-end developer.</div>
-            <p ref={homeRef}  className={pStyle}>
+            <p ref={homeRef} className={pStyle}>
               Gratuated from Bauman Moscow State Technical University. Spent 10 years working as
               electronics engineer, my high school specialization. Also experienced as technical
               support specialist and network administrator.
@@ -59,9 +60,11 @@ export const Home = () => {
               <FiArrowRightCircle size={30} className={buttonStyle} />
             </div>
           </div>
-          <div className="sm:col-span-2 grid place-items-center">
-            <img src={blackHole} alt="Header Img" />
-          </div>
+          {!mobile && (
+            <div className="grid sm:col-span-2 place-items-center">
+              <img src={home} alt="Header Img" />
+            </div>
+          )}
         </div>
       </div>
     </div>

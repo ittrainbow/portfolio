@@ -2,7 +2,7 @@ import { useRef, useEffect, useContext } from 'react'
 
 import { Context } from '../context/Context'
 import { Card } from './Card'
-import { projects } from '../helpers/projects'
+import { apps } from '../helpers/apps'
 import { useVisibility } from '../hooks/useVisibility'
 
 export const Projects = () => {
@@ -26,10 +26,10 @@ export const Projects = () => {
       </h2>
       <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => {
+          {apps.map((app, index) => {
             return (
               <div key={index} className="grid place-items-center">
-                <Card {...project} />
+                <Card {...app} />
               </div>
             )
           })}

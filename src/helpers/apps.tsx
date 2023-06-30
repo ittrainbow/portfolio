@@ -8,7 +8,7 @@ import qb from '../assets/qb-min.png'
 import taskmanager from '../assets/taskmanager-min.png'
 import tickets from '../assets/tickets-min.png'
 
-export const projects = [
+export const apps = [
   {
     title: 'Portfolio page',
     description: 'This page',
@@ -26,7 +26,7 @@ export const projects = [
     url: '',
     git: 'https://github.com/ittrainbow/player-native',
     icons: [icon.js, icon.reactNative, icon.expo],
-    apk: 'link'
+    apk: 'player-native.apk'
   },
   {
     title: 'Prediction contest',
@@ -81,6 +81,6 @@ export const projects = [
     git: 'https://github.com/ittrainbow/dice-react',
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icon.js, icon.react, icon.css],
-    apk: 'link'
+    apk: 'two-dices.apk'
   }
 ]

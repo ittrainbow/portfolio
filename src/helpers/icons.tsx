@@ -19,7 +19,7 @@ const linkIconStyles = 'pr-1 cursor-pointer text-slate-900'
 
 export const github = (
   <a href="https://github.com/ittrainbow">
-    <BsGithub className="text-slate-200 text-opacity-90 cursor-pointer bg-zinc-950 rounded-3xl" />
+    <BsGithub className="cursor-pointer text-slate-200 text-opacity-90 bg-zinc-950 rounded-3xl" />
   </a>
 )
 export const githubLink = (link: string) => (
@@ -30,13 +30,13 @@ export const githubLink = (link: string) => (
 
 export const externalLink = (url: string) => (
   <a href={url} className={linkIconStyles}>
-    {url && url.length > 0 && <FaExternalLinkSquareAlt />}
+    <FaExternalLinkSquareAlt />
   </a>
 )
 
-export const downloadLink = (apk: string) => (
-  <a href={apk} className={linkIconStyles}>
-    {apk && apk.length > 0 && <FaFileDownload />}
+export const downloadLink = (link: string) => (
+  <a href={link} className={linkIconStyles}>
+    <FaFileDownload />
   </a>
 )
 
@@ -75,7 +75,7 @@ export const react = <SiReact className="text-blue-700" />
 
 export const reactNative = <SiReact className="text-violet-900" />
 
-export const saga = <SiReduxsaga className="text-emerald-600" />
+export const saga = <SiReduxsaga className="text-emerald-800" />
 
 export const reactTable = <SiReacttable className="text-stone-700" />
 

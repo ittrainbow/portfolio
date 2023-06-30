@@ -24,8 +24,8 @@ export const About = () => {
       <h2 className="mb-5 text-4xl font-bold text-center">About me</h2>
       <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-7">
-          <div className="text-center sm:col-span-4 sm:text-left">
-            <span className="py-2 font-sans text-3xl text-white">
+          <div className="text-left sm:col-span-4">
+            <span className="py-2 font-sans text-3xl text-white text-start">
               Few more words to introduce myself.
             </span>
             <p className={pStyle}>

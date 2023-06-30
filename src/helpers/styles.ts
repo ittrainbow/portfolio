@@ -1,9 +1,10 @@
 export const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300 text-left'
 
-export const fadeClass = (isInViewport: boolean) =>
-  `${isInViewport ? 'animate-fade-up' : 'opacity-0'} py-12`
+export const fadeClass = (isInViewport: boolean) => {
+  return `${isInViewport ? 'animate-fade-up' : 'opacity-0'} py-12`
+}
 
-export const navbarTransitionStyle = 'transition-all ease-in-out'
+export const navbarTransitionStyle = `transition-all ease-in-out`
 
 export const navbarDesktopStyle = (scrolled: boolean) =>
   `${scrolled ? 'bg-gray-800' : ''}  ${
@@ -13,16 +14,14 @@ export const navbarDesktopStyle = (scrolled: boolean) =>
 export const navbarDesktopLinksStyle = (scrolled: boolean) =>
   `${scrolled ? 'h-12' : 'h-20'} ${navbarTransitionStyle} flex flex-row ms-auto items-center`
 
-export const navbarIconStyle = (mobile: boolean, scrolled: boolean) => {
-  return `${!mobile && scrolled ? 'text-3xl' : 'text-3xl'} ${navbarTransitionStyle} sm:ml-2`
-}
+export const navbarIconStyle = `text-3xl ${navbarTransitionStyle} sm:ml-2`
 
 export const navbarMobileMenuToggler = (open: boolean, drawNavbar: boolean) =>
   `${
     open ? 'bg-opacity-0' : 'bg-opacity-10 left-0'
   } ${navbarTransitionStyle} bg-gray-300 fixed left-1 top-1 z-20 p-2 rounded-3xl text-3xl ${
     drawNavbar ? '' : 'opacity-0'
-  }`
+  } `
 
 export const navbarMobileLinksStyle = (open: boolean, drawNavbar: boolean) =>
   `${open ? 'left-0' : `-left-full`} ${navbarTransitionStyle} ${

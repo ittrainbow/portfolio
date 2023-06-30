@@ -40,7 +40,7 @@ export const Header = () => {
       }, 1000)
     }
     window.addEventListener('scroll', listener)
-    return () => window.removeEventListener('scroll', listener)
+    return () => window.removeEventListener('scroll', listener) // eslint-disable-next-line
   }, [drawNavbar])
 
   window.onscroll = () => drawNavbar && setDrawNavbar(false)
@@ -103,7 +103,7 @@ export const Header = () => {
             >
               {el.replace(/ /g, '\u00A0')}
               {el === 'Github' && !mobile && (
-                <div className={navbarIconStyle(mobile, scrolled)}>{icon.github}</div>
+                <div className={navbarIconStyle}>{icon.github}</div>
               )}
             </button>
           )
