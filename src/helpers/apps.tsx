@@ -8,6 +8,8 @@ import qb from '../assets/qb.jpg'
 import taskmanager from '../assets/taskmanager.jpg'
 import tickets from '../assets/tickets.jpg'
 
+console.log(1, dices, landing, mafia, packers, player, qb, taskmanager, tickets)
+
 export const apps = [
   {
     title: 'Portfolio page',
@@ -30,7 +32,7 @@ export const apps = [
   },
   {
     title: 'Prediction contest',
-    description: 'Packers community game',
+    description: 'Packers community web game',
     stack: 'React, Redux-Saga, Firebase',
     imgUrl: packers,
     git: 'https://github.com/ittrainbow/packbet',
@@ -62,7 +64,7 @@ export const apps = [
     imgUrl: mafia,
     git: 'https://github.com/ittrainbow/mafia-helper',
     url: 'https://circle-38cc7.web.app/',
-    icons: [icon.react, icon.firebase]
+    icons: [icon.js, icon.react, icon.firebase]
   },
   {
     title: 'QB Passer rating',

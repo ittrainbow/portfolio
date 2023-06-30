@@ -34,11 +34,7 @@ export const externalLink = (url: string) => (
   </a>
 )
 
-export const downloadLink = (link: string) => (
-  <a href={link} className={linkIconStyles}>
-    <FaFileDownload />
-  </a>
-)
+export const downloadLink = <FaFileDownload className={linkIconStyles} />
 
 export const telegram = (
   <a href="https://t.me/ittrainbow">

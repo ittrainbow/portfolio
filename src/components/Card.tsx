@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect, useState } from 'react'
+import { useContext, useRef, useEffect } from 'react'
 import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 
 import * as icon from '../helpers/icons'
@@ -35,20 +35,17 @@ export const Card = ({
   const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } =
     useContext(Context)
   const storage = getStorage(app)
-  const [downloadUrl, setDownloadUrl] = useState<string>('')
 
   useEffect(() => {
     !aboutInViewport &&
       !homeInViewport &&
       !projectsInViewport &&
       isInViewport &&
-      setProjectsInViewport(isInViewport)
-    // eslint-disable-next-line
+      setProjectsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
-  useEffect(() => {
-    apk && getDownloadURL(ref(storage, apk)).then((url) => setDownloadUrl(url))
-  }, [apk, storage])
+  const clickHandler = () =>
+    getDownloadURL(ref(storage, apk)).then((url) => (window.location.href = url))
 
   const onHover = `hover:top-1/2 hover:opacity-95`
   const transition = `transition-all duration-500 ease-in-out`
@@ -78,7 +75,7 @@ export const Card = ({
               </div>
               <div>
                 <div className={stackStyles + ' text-right'}>
-                  {apk && apk.length > 0 && icon.downloadLink(downloadUrl)}
+                  <div onClick={clickHandler}>{apk && icon.downloadLink}</div>
                   {url && url.length > 0 && icon.externalLink(url)}
                   {git && git.length > 0 && icon.githubLink(git)}
                 </div>

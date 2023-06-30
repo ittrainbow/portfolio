@@ -1,6 +1,6 @@
 import { useRef, useEffect, useContext } from 'react'
 
-import ittr from '../assets/ittr.png'
+import ittr from '../assets/ittr.jpg'
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
 import { pStyle } from '../helpers/styles'
@@ -43,7 +43,7 @@ export const About = () => {
             </p>
           </div>
           <div className="sm:col-span-3">
-            <img src={ittr} alt="" />
+            <img src={ittr} alt="" className='rounded-[50px] opacity-95'/>
           </div>
         </div>
       </div>
