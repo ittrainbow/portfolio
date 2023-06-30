@@ -54,9 +54,9 @@ export const Card = ({
           <img src={imgUrl} alt="" />
           <div className={cardContentClass}>
             <div className="flex flex-col grow text-center ">
-              <h4 className="text-2xl font-bold mb-3">{title}</h4>
-              <div className="grid place-items-center grow text-lg">{description}</div>
-              <div className="grid place-items-center grow">{stack}</div>
+              <h4 className="text-3xl font-bold grid place-items-center grow">{title}</h4>
+              <div className="text-xl grid place-items-center grow">{description}</div>
+              <div className="text-xl grid place-items-center grow">{stack}</div>
             </div>
             <div className="bottom-0 flex flex-row justify-between mt-3">
               <div>
