@@ -40,13 +40,13 @@ export const Home = () => {
             <div ref={homeHeaderRef} className="py-2 font-sans text-3xl text-white">
               I'm Andrey Gordienko
             </div>
-            <div className={pStyle}>Front-end developer.</div>
-            <p ref={homeRef} className={pStyle}>
-              Gratuated from Bauman Moscow State Technical University. Spent 10 years working as
+            <p className={pStyle(mobile)}>Front-end developer.</p>
+            <p ref={homeRef} className={pStyle(mobile)}>
+              Gratuated from Bauman MSTU. Spent 10 years working as
               electronics engineer, my high school specialization. Also experienced as technical
               support specialist and network administrator.
             </p>
-            <p className={pStyle}>
+            <p className={pStyle(mobile)}>
               Nowadays i'm looking for new stint of my career as software engineer. Let me share
               some examples of my code with you.
             </p>

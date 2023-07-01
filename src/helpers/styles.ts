@@ -1,4 +1,5 @@
-export const pStyle = 'py-2 mt-3 font-sans text-2xl text-gray-300 text-left'
+export const pStyle = (mobile: boolean = false) =>
+  `py-2 mt-3 font-sans text-2xl text-gray-300 ${mobile ? 'text-center' : 'text-start'}`
 
 export const fadeClass = (isInViewport: boolean) => {
   return `${isInViewport ? 'animate-fade-up' : 'opacity-0'} py-12`
@@ -26,11 +27,13 @@ export const navbarMobileMenuToggler = (open: boolean, drawNavbar: boolean) =>
 export const navbarMobileLinksStyle = (open: boolean, drawNavbar: boolean) =>
   `${open ? 'left-0' : `-left-full`} ${navbarTransitionStyle} ${
     drawNavbar ? 'bg-gray-800' : ''
-  } bg-opacity-95 duration-500 fixed z-10 flex flex-col w-full items-center`
+  } bg-opacity-95 duration-500 fixed z-10 flex flex-col w-full `
 
-export const navbarTabStyle = (link: string, activeLink: string, mobile: boolean) =>
-  `${activeLink === link ? 'text-white' : 'text-gray-500'} ${
+export const navbarTabStyle = (link: string, activeLink: string, mobile: boolean) => {
+  const active = activeLink === link
+  return `${active ? 'text-white' : 'text-gray-500'} ${
     link === 'github' && !mobile ? 'ml-6' : ''
   } ${navbarTransitionStyle} ${
-    mobile ? 'py-3' : ''
-  } text-2xl hover:text-gray-400 p-2 items-center cursor-pointer flex flex-row gap-1`
+    mobile ? 'py-3 w-full grid place-items-center' : ''
+  } text-2xl hover:${active ? '' : 'text-gray-400'} p-2 cursor-pointer flex flex-row gap-1`
+}
