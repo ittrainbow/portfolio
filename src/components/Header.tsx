@@ -22,7 +22,7 @@ export const Header = () => {
 
   useEffect(() => {
     const onPageLoad = () => {
-      setTimeout(() => setDrawNavbar(true), 500)
+      setTimeout(() => setDrawNavbar(true), 200)
       window.removeEventListener('load', onPageLoad)
     }
 
@@ -37,16 +37,21 @@ export const Header = () => {
         const y2 = window.scrollY
         y2 !== y1 && drawNavbar && mobile && setDrawNavbar(false)
         y2 === y1 && !drawNavbar && mobile && setDrawNavbar(true)
-      }, 1000)
+      }, 750)
     }
     window.addEventListener('scroll', listener)
     return () => window.removeEventListener('scroll', listener) // eslint-disable-next-line
   }, [drawNavbar])
 
-  window.onscroll = () => drawNavbar && setDrawNavbar(false)
+  window.onscroll = () => {
+    if (drawNavbar) {
+      setDrawNavbar(false)
+      setOpen(false)
+    }
+  }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -102,9 +107,7 @@ export const Header = () => {
               onClick={smoothScroll}
             >
               {el.replace(/ /g, '\u00A0')}
-              {el === 'Github' && !mobile && (
-                <div className={navbarIconStyle}>{icon.github}</div>
-              )}
+              {el === 'Github' && !mobile && <div className={navbarIconStyle}>{icon.github}</div>}
             </button>
           )
         })}

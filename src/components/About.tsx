@@ -38,12 +38,12 @@ export const About = () => {
               into software engineering.
             </p>
             <p className={pStyle}>
-              Personal interests are sports (football, soccer, cycling), sci-fi, cosmology and
+              Personal interests are sports (football, soccer, cycling), sci-fi and space,
               video-editing.
             </p>
           </div>
           <div className="sm:col-span-3">
-            <img src={ittr} alt="" className='rounded-[50px] opacity-95'/>
+            <img src={ittr} alt="" className="rounded-[50px] opacity-95" />
           </div>
         </div>
       </div>

@@ -8,8 +8,6 @@ import qb from '../assets/qb.jpg'
 import taskmanager from '../assets/taskmanager.jpg'
 import tickets from '../assets/tickets.jpg'
 
-console.log(1, dices, landing, mafia, packers, player, qb, taskmanager, tickets)
-
 export const apps = [
   {
     title: 'Portfolio page',

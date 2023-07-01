@@ -18,17 +18,19 @@ export const navbarIconStyle = `text-3xl ${navbarTransitionStyle} sm:ml-2`
 
 export const navbarMobileMenuToggler = (open: boolean, drawNavbar: boolean) =>
   `${
-    open ? 'bg-opacity-0' : 'bg-opacity-10 left-0'
-  } ${navbarTransitionStyle} bg-gray-300 fixed left-1 top-1 z-20 p-2 rounded-3xl text-3xl ${
+    open ? 'bg-opacity-0' : 'bg-opacity-20 left-0'
+  } ${navbarTransitionStyle} duration-500 bg-gray-300 fixed left-1 top-1 z-20 p-2 rounded-3xl text-3xl ${
     drawNavbar ? '' : 'opacity-0'
   } `
 
 export const navbarMobileLinksStyle = (open: boolean, drawNavbar: boolean) =>
   `${open ? 'left-0' : `-left-full`} ${navbarTransitionStyle} ${
     drawNavbar ? 'bg-gray-800' : ''
-  } bg-opacity-95 fixed z-10 flex flex-col w-full items-center`
+  } bg-opacity-95 duration-500 fixed z-10 flex flex-col w-full items-center`
 
 export const navbarTabStyle = (link: string, activeLink: string, mobile: boolean) =>
   `${activeLink === link ? 'text-white' : 'text-gray-500'} ${
     link === 'github' && !mobile ? 'ml-6' : ''
-  } ${navbarTransitionStyle} text-2xl hover:text-gray-400 p-2 items-center cursor-pointer flex flex-row gap-1`
+  } ${navbarTransitionStyle} ${
+    mobile ? 'py-3' : ''
+  } text-2xl hover:text-gray-400 p-2 items-center cursor-pointer flex flex-row gap-1`
