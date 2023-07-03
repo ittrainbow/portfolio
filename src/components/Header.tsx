@@ -99,7 +99,6 @@ export const Header = () => {
       >
         {tabs.map((el, index) => {
           const link = el.replace(/\s+/g, '').toLowerCase()
-
           return (
             <button
               key={index}

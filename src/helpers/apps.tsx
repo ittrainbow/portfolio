@@ -19,16 +19,6 @@ export const apps = [
     icons: [icon.ts, icon.react, icon.tailwind]
   },
   {
-    title: 'React Native player',
-    description: 'Audio player APK build',
-    stack: 'React Native, Expo SDK',
-    imgUrl: player,
-    url: '',
-    git: 'https://github.com/ittrainbow/player-native',
-    icons: [icon.js, icon.reactNative, icon.expo],
-    apk: 'player-native.apk'
-  },
-  {
     title: 'Prediction contest',
     description: 'Packers community web game',
     stack: 'React, Redux-Saga, Firebase',
@@ -45,6 +35,16 @@ export const apps = [
     git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
     icons: [icon.ts, icon.react, icon.saga, icon.firebase]
+  },
+  {
+    title: 'React Native player',
+    description: 'Audio player APK build',
+    stack: 'React Native, Expo SDK',
+    imgUrl: player,
+    url: '',
+    git: 'https://github.com/ittrainbow/player-native',
+    icons: [icon.js, icon.reactNative, icon.expo],
+    apk: 'player-native.apk'
   },
   {
     title: 'QA process app',

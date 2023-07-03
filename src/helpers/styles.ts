@@ -30,10 +30,9 @@ export const navbarMobileLinksStyle = (open: boolean, drawNavbar: boolean) =>
   } bg-opacity-95 duration-500 fixed z-10 flex flex-col w-full `
 
 export const navbarTabStyle = (link: string, activeLink: string, mobile: boolean) => {
-  const active = activeLink === link
-  return `${active ? 'text-white' : 'text-gray-500'} ${
+  return `${activeLink === link ? 'text-white' : 'text-gray-500 hover:text-gray-400'} ${
     link === 'github' && !mobile ? 'ml-6' : ''
   } ${navbarTransitionStyle} ${
     mobile ? 'py-3 w-full grid place-items-center' : ''
-  } text-2xl hover:${active ? '' : 'text-gray-400'} p-2 cursor-pointer flex flex-row gap-1`
+  } text-2xl p-2 cursor-pointer flex flex-row gap-1`
 }
