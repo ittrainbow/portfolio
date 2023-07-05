@@ -5,6 +5,7 @@ import * as icon from '../helpers/icons'
 import { useVisibility } from '../hooks/useVisibility'
 import { Context } from '../context/Context'
 import { app } from '../db/firebase'
+import { fadeStyle } from '../helpers/styles'
 
 type CardPropsType = {
   title: string
@@ -55,7 +56,7 @@ export const Card = ({
 
   return (
     <div ref={cardRef}>
-      <div className={isInViewport ? 'animate-fade-up' : 'opacity-0'}>
+      <div className={fadeStyle(isInViewport)}>
         <div className={cardBgClass}>
           <img src={imgUrl} alt="" />
           <div className={cardContentClass}>

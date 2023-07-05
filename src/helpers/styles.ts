@@ -1,8 +1,8 @@
 export const pStyle = (mobile: boolean = false) =>
   `py-2 mt-3 font-sans text-2xl text-gray-300 ${mobile ? 'text-center' : 'text-start'}`
 
-export const fadeClass = (isInViewport: boolean) => {
-  return `${isInViewport ? 'animate-fade-up' : 'opacity-0'} py-12`
+export const fadeStyle = (isInViewport: boolean) => {
+  return `${isInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'}`
 }
 
 export const navbarTransitionStyle = `transition-all ease-in-out`

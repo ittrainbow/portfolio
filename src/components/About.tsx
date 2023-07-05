@@ -3,7 +3,7 @@ import { useRef, useEffect, useContext } from 'react'
 import ittr from '../assets/ittr.jpg'
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
-import { pStyle } from '../helpers/styles'
+import { pStyle, fadeStyle } from '../helpers/styles'
 
 export const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
@@ -17,7 +17,7 @@ export const About = () => {
     // eslint-disable-next-line
   }, [isInViewport])
 
-  const fadeClass = `${aboutInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'} py-16`
+  const fadeClass = `${fadeStyle(aboutInViewport)} py-16`
 
   return (
     <div ref={aboutRef} className={fadeClass} id="aboutme">

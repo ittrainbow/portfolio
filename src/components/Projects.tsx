@@ -4,6 +4,7 @@ import { Context } from '../context/Context'
 import { Card } from './Card'
 import { apps } from '../helpers/apps'
 import { useVisibility } from '../hooks/useVisibility'
+import { fadeStyle } from '../helpers/styles'
 
 export const Projects = () => {
   const projectsRef = useRef<HTMLDivElement>(null)
@@ -15,9 +16,7 @@ export const Projects = () => {
     setProjectsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
-  const fadeClass = `${
-    projectsInViewport ? 'animate-fade-up' : 'opacity-0'
-  } mb-5 text-4xl font-bold text-center`
+  const fadeClass = `${fadeStyle(projectsInViewport)} mb-5 text-4xl font-bold text-center`
 
   return (
     <div className="py-16" id="projects">

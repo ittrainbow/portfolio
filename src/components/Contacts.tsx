@@ -3,6 +3,7 @@ import * as icon from '../helpers/icons'
 
 import { useVisibility } from '../hooks/useVisibility'
 import { Context } from '../context/Context'
+import { fadeStyle } from '../helpers/styles'
 
 export const Contacts = () => {
   const contactRef = useRef<HTMLDivElement>(null)
@@ -13,7 +14,7 @@ export const Contacts = () => {
     setContactsInViewport(isHeaderInViewport) // eslint-disable-next-line
   }, [isHeaderInViewport])
 
-  const fadeClass = `${contactsInViewport ? 'animate-fade-up' : 'opacity-0'} pt-12 sm:py-12 `
+  const fadeClass = `${fadeStyle(contactsInViewport)} pt-12 sm:py-12 `
 
   return (
     <div ref={contactRef} className={fadeClass} id="contacts">
