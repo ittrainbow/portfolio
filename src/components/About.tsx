@@ -6,42 +6,50 @@ import { useVisibility } from '../hooks/useVisibility'
 import { pStyle, fadeStyle } from '../helpers/styles'
 
 export const About = () => {
-  const aboutRef = useRef<HTMLDivElement>(null)
-  const isInViewport = useVisibility(aboutRef)
+  const aboutHeaderRef = useRef<HTMLDivElement>(null)
+  const aboutTextRef = useRef<HTMLDivElement>(null)
+  const aboutPictureRef = useRef<HTMLDivElement>(null)
+
+  const isHeaderInViewport = useVisibility(aboutHeaderRef)
+  const isTextInViewport = useVisibility(aboutTextRef)
+  const isPictureInViewport = useVisibility(aboutPictureRef)
+
   const { aboutInViewport, projectsInViewport, setAboutInViewport, setProjectsInViewport, mobile } =
     useContext(Context)
 
   useEffect(() => {
-    !aboutInViewport && projectsInViewport && isInViewport && setProjectsInViewport(false)
-    setAboutInViewport(isInViewport)
+    !aboutInViewport && projectsInViewport && isHeaderInViewport && setProjectsInViewport(false)
+    setAboutInViewport(isHeaderInViewport)
     // eslint-disable-next-line
-  }, [isInViewport])
+  }, [isHeaderInViewport])
 
-  const fadeClass = `${fadeStyle(aboutInViewport)} py-16`
+  const headerClass = `${fadeStyle(isHeaderInViewport)} py-16`
+  const textClass = `${fadeStyle(isTextInViewport)} ${pStyle(mobile)}`
+  const pictureClass = `${fadeStyle(isPictureInViewport)} rounded-[50px]`
 
   return (
-    <div ref={aboutRef} className={fadeClass} id="aboutme">
+    <div ref={aboutHeaderRef} className={headerClass} id="aboutme">
       <h2 className="mb-5 text-4xl font-bold text-center">About me</h2>
       <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-7">
-          <div className="text-left sm:col-span-4">
-            <p className={pStyle(mobile)}>Few more words to introduce myself.</p>
-            <p className={pStyle(mobile)}>
+          <div ref={aboutTextRef} className="text-left sm:col-span-4">
+            <p className={textClass}>Few more words to introduce myself.</p>
+            <p className={textClass}>
               I was born in Moscow in 1984 and lived in suburbs of a city ever since. Single.
             </p>
-            <p className={pStyle(mobile)}>
+            <p className={textClass}>
               Besides mentioned before i spent my years working as sports journalist, technical
               writer at project institution and crypto-trader. Love bike-traveling and tech. After
               fully realising that my major speciality does not fit my life goals decided to switch
               into software engineering.
             </p>
-            <p className={pStyle(mobile)}>
+            <p className={textClass}>
               Personal interests are sports (football, soccer, cycling), sci-fi and space,
               video-editing.
             </p>
           </div>
-          <div className="sm:col-span-3">
-            <img src={ittr} alt="" className="rounded-[50px] opacity-95" />
+          <div ref={aboutPictureRef} className="sm:col-span-3">
+            <img src={ittr} alt="" className={pictureClass} />
           </div>
         </div>
       </div>

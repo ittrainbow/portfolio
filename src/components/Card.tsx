@@ -5,7 +5,7 @@ import * as icon from '../helpers/icons'
 import { useVisibility } from '../hooks/useVisibility'
 import { Context } from '../context/Context'
 import { app } from '../db/firebase'
-import { fadeStyle } from '../helpers/styles'
+import { fadeStyle, commonTransitionStyle } from '../helpers/styles'
 
 type CardPropsType = {
   title: string
@@ -49,9 +49,8 @@ export const Card = ({
     getDownloadURL(ref(storage, apk)).then((url) => (window.location.href = url))
 
   const onHover = `hover:top-1/2 hover:opacity-95`
-  const transition = `transition-all duration-500 ease-in-out`
-  const cardContentClass = `${onHover} ${transition} px-2 py-5 -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col opacity-0 min-w-[320px]`
-  const cardBgClass = `${onHover} ${transition} relative max-w-md overflow-hidden rounded-xl card-bg`
+  const cardContentClass = `${onHover} ${commonTransitionStyle} px-2 py-5 -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col opacity-0 min-w-[320px]`
+  const cardBgClass = `${onHover} ${commonTransitionStyle} relative max-w-md overflow-hidden rounded-xl card-bg`
   const subTextClass = 'text-sm text-center opacity-70 mt-1'
 
   return (

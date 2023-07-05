@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, MouseEvent } from 'react'
-import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from 'react-icons/ai'
+import { AiOutlineDoubleLeft } from 'react-icons/ai'
 import * as icon from '../helpers/icons'
 import {
   navbarDesktopStyle,
@@ -7,7 +7,8 @@ import {
   navbarMobileLinksStyle,
   navbarMobileMenuToggler,
   navbarTabStyle,
-  navbarIconStyle
+  navbarIconStyle,
+  commonTransitionStyle
 } from '../helpers/styles'
 
 import { Context } from '../context/Context'
@@ -78,20 +79,17 @@ export const Header = () => {
   }
 
   const tabs = ['Home', 'Projects', 'About me', 'Contacts', 'Github']
+  const buttonClass = `${commonTransitionStyle} rotate-${open ? 0 : 180}`
+  const buttonParentClass = `${open ? '' : 'pl-1'} ${commonTransitionStyle}`
+  const button = (
+    <div className={buttonParentClass}>
+      <AiOutlineDoubleLeft onClick={() => setOpen(!open)} className={buttonClass} />
+    </div>
+  )
 
   return (
     <div className={mobile ? '' : navbarDesktopStyle(scrolled)}>
-      {mobile ? (
-        <div className={navbarMobileMenuToggler(open, drawNavbar)}>
-          {open ? (
-            <AiOutlineDoubleLeft onClick={() => setOpen(false)} />
-          ) : (
-            <AiOutlineDoubleRight onClick={() => setOpen(true)} />
-          )}
-        </div>
-      ) : (
-        ''
-      )}
+      {mobile ? <div className={navbarMobileMenuToggler(open, drawNavbar)}>{button}</div> : ''}
       <div
         className={
           mobile ? navbarMobileLinksStyle(open, drawNavbar) : navbarDesktopLinksStyle(scrolled)

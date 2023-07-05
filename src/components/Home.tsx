@@ -7,7 +7,7 @@ import { useVisibility } from '../hooks/useVisibility'
 import { fadeStyle, pStyle } from '../helpers/styles'
 
 export const Home = () => {
-  const { homeInViewport, setHomeInViewport, mobile } = useContext(Context)
+  const { setHomeInViewport, mobile } = useContext(Context)
   const [hover, setHover] = useState<boolean>(false)
   const homeRef = useRef<HTMLDivElement>(null)
   const homeHeaderRef = useRef<HTMLDivElement>(null)
@@ -24,7 +24,7 @@ export const Home = () => {
     hover ? 'ml-8' : 'ml-3'
   } `
 
-  const fadeHomeClass = `${fadeStyle(homeInViewport)} ${mobile ? 'pt-12' : 'pt-24'} pb-16`
+  const fadeHomeClass = `${fadeStyle(isHomeInViewport)} ${mobile ? 'pt-12' : 'pt-24'} pb-16`
 
   const fadeTextClass = `${fadeStyle(
     isHomeInViewport

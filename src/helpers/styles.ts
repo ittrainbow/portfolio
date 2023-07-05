@@ -6,6 +6,7 @@ export const fadeStyle = (isInViewport: boolean) => {
 }
 
 export const navbarTransitionStyle = `transition-all ease-in-out`
+export const commonTransitionStyle = `transition-all duration-500 ease-in-out`
 
 export const navbarDesktopStyle = (scrolled: boolean) =>
   `${scrolled ? 'bg-gray-800' : ''}  ${
