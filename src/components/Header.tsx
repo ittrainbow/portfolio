@@ -79,7 +79,7 @@ export const Header = () => {
   }
 
   const tabs = ['Home', 'Projects', 'About me', 'Contacts', 'Github']
-  const buttonClass = `${commonTransitionStyle} rotate-${open ? 0 : 180}`
+  const buttonClass = `${commonTransitionStyle} rotate-${open ? '0' : '180'}`
   const buttonParentClass = `${open ? '' : 'pl-1'} ${commonTransitionStyle}`
   const button = (
     <div className={buttonParentClass}>

@@ -7,20 +7,20 @@ import { useVisibility } from '../hooks/useVisibility'
 import { fadeStyle } from '../helpers/styles'
 
 export const Projects = () => {
-  const projectsRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
 
-  const isInViewport = useVisibility(projectsRef)
+  const isHeaderInViewport = useVisibility(headerRef)
   const { setProjectsInViewport } = useContext(Context)
 
   useEffect(() => {
-    setProjectsInViewport(isInViewport) // eslint-disable-next-line
-  }, [isInViewport])
+    setProjectsInViewport(isHeaderInViewport) // eslint-disable-next-line
+  }, [isHeaderInViewport])
 
-  const fadeClass = `${fadeStyle(isInViewport)} mb-5 text-4xl font-bold text-center`
+  const fadeClass = `${fadeStyle(isHeaderInViewport)} mb-5 text-4xl font-bold text-center`
 
   return (
     <div className="py-16" id="projects">
-      <h2 ref={projectsRef}>
+      <h2 ref={headerRef}>
         <div className={fadeClass}>My Projects</div>
       </h2>
       <div className="grid py-5 place-items-center">

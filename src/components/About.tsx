@@ -23,13 +23,17 @@ export const About = () => {
     // eslint-disable-next-line
   }, [isHeaderInViewport])
 
-  const headerClass = `${fadeStyle(isHeaderInViewport)} py-16`
-  const textClass = `${fadeStyle(isTextInViewport)} ${pStyle(mobile)}`
-  const pictureClass = `${fadeStyle(isPictureInViewport)} rounded-[50px]`
+  const headerClass = `${fadeStyle(isHeaderInViewport)}`
+  const textClass = `${fadeStyle(isTextInViewport && (mobile || aboutInViewport))} ${pStyle(mobile)}`
+  const pictureClass = `${fadeStyle(
+    isPictureInViewport && (mobile || aboutInViewport)
+  )} rounded-[50px]`
 
   return (
-    <div ref={aboutHeaderRef} className={headerClass} id="aboutme">
-      <h2 className="mb-5 text-4xl font-bold text-center">About me</h2>
+    <div className="py-16" id="aboutme">
+      <h2 ref={aboutHeaderRef} className="mb-5 text-4xl font-bold text-center">
+        <div className={headerClass}>About me</div>
+      </h2>
       <div className="grid py-5 place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-7">
           <div ref={aboutTextRef} className="text-left sm:col-span-4">

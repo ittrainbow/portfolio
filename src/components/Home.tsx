@@ -10,7 +10,6 @@ export const Home = () => {
   const { setHomeInViewport, mobile } = useContext(Context)
   const [hover, setHover] = useState<boolean>(false)
   const homeRef = useRef<HTMLDivElement>(null)
-  const homeHeaderRef = useRef<HTMLDivElement>(null)
   const isHomeInViewport = useVisibility(homeRef)
 
   useEffect(() => {
@@ -35,9 +34,7 @@ export const Home = () => {
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
           <div className={fadeTextClass}>
-            <div ref={homeHeaderRef} className="py-2 font-sans text-3xl text-white">
-              I'm Andrey Gordienko
-            </div>
+            <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
             <p className={pStyle(mobile)}>Front-end developer.</p>
             <p ref={homeRef} className={pStyle(mobile)}>
               Gratuated from Bauman MSTU. Spent 10 years working as electronics engineer, my high
