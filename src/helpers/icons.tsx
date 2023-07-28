@@ -11,7 +11,8 @@ import {
   SiFirebase,
   SiExpo,
   SiReacttable,
-  SiCss3
+  SiCss3,
+  SiSocketdotio
 } from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
 
@@ -82,3 +83,5 @@ export const css = <SiCss3 className="text-blue-700" />
 export const expo = <SiExpo className="text-gray-900" />
 
 export const firebase = <SiFirebase className="text-orange-500" />
+
+export const socketio = <SiSocketdotio className="text-gray-900" />
