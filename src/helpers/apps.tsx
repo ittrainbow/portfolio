@@ -6,6 +6,7 @@ import packers from '../assets/packers.jpg'
 import player from '../assets/player.jpg'
 import qb from '../assets/qb.jpg'
 import taskmanager from '../assets/taskmanager.jpg'
+import socketchat from '../assets/socketchat.jpg'
 import tickets from '../assets/tickets.jpg'
 
 export const apps = [
@@ -82,5 +83,14 @@ export const apps = [
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icon.js, icon.react, icon.css],
     apk: 'two-dices.apk'
+  },
+  {
+    title: 'Socket chatroom',
+    description: 'Simple chat via socket.io & express',
+    stack: 'React, Socket.io',
+    imgUrl: socketchat,
+    git: 'https://github.com/ittrainbow/socket-chat',
+    url: 'https://beautiful-cassata-ceff31.netlify.app',
+    icons: [icon.ts, icon.react, icon.socketio]
   }
 ]

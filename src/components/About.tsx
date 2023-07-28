@@ -19,9 +19,9 @@ export const About = () => {
 
   useEffect(() => {
     !aboutInViewport && projectsInViewport && isHeaderInViewport && setProjectsInViewport(false)
-    setAboutInViewport(isHeaderInViewport)
+    setAboutInViewport(isTextInViewport)
     // eslint-disable-next-line
-  }, [isHeaderInViewport])
+  }, [isTextInViewport])
 
   const headerClass = `${fadeStyle(isHeaderInViewport)}`
   const textClass = `${fadeStyle(isTextInViewport && (mobile || aboutInViewport))} ${pStyle(mobile)}`
