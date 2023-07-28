@@ -83,5 +83,14 @@ export const apps = [
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icon.js, icon.react, icon.css],
     apk: 'two-dices.apk'
+  },
+  {
+    title: 'Socket chatrooms',
+    description: 'Socket.io simple chat',
+    stack: 'React, Socket.io',
+    imgUrl: socketchat,
+    git: 'https://github.com/ittrainbow/socket-chat',
+    url: 'https://beautiful-cassata-ceff31.netlify.app/',
+    icons: [icon.ts, icon.js, icon.socketIo, icon.react]
   }
 ]

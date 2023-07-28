@@ -84,4 +84,4 @@ export const expo = <SiExpo className="text-gray-900" />
 
 export const firebase = <SiFirebase className="text-orange-500" />
 
-export const socketio = <SiSocketdotio className="text-gray-900" />
+export const socketIo = <SiSocketdotio className="text-gray-900" />
