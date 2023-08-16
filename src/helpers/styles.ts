@@ -21,7 +21,7 @@ export const navbarIconStyle = `text-3xl ${navbarTransitionStyle} sm:ml-2`
 export const navbarMobileMenuToggler = (open: boolean, drawNavbar: boolean) =>
   `${
     open ? 'bg-opacity-0' : 'bg-opacity-20 left-0'
-  } ${navbarTransitionStyle} duration-500 bg-gray-300 fixed left-1 top-1 z-20 p-2 rounded-3xl text-3xl ${
+  } ${navbarTransitionStyle} duration-500 bg-gray-500 fixed left-1 top-1 z-20 p-2 rounded-3xl text-3xl ${
     drawNavbar ? '' : 'opacity-0'
   } `
 

@@ -23,6 +23,7 @@ export const github = (
     <BsGithub className="cursor-pointer text-slate-200 text-opacity-90 bg-zinc-950 rounded-3xl" />
   </a>
 )
+
 export const githubLink = (link: string) => (
   <a href={link}>
     <BsGithub className="text-slate-900" />

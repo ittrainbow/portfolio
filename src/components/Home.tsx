@@ -16,12 +16,9 @@ export const Home = () => {
     setHomeInViewport(isHomeInViewport) // eslint-disable-next-line
   }, [isHomeInViewport])
 
-  const smoothScroll = () =>
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const smoothScroll = () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
-  const buttonStyle = `ease-in-out duration-300 text-violet-500 text-5xl font-bold ${
-    hover ? 'ml-8' : 'ml-3'
-  } `
+  const buttonStyle = `ease-in-out duration-300 text-violet-500 text-5xl font-bold ${hover ? 'ml-8' : 'ml-3'} `
 
   const fadeHomeClass = `${fadeStyle(isHomeInViewport)} ${mobile ? 'pt-12' : 'pt-24'} pb-16`
 
@@ -37,13 +34,12 @@ export const Home = () => {
             <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
             <p className={pStyle(mobile)}>Front-end developer.</p>
             <p ref={homeRef} className={pStyle(mobile)}>
-              Gratuated from Bauman MSTU. Spent 10 years working as electronics engineer, my high
-              school specialization. Also experienced as technical support specialist and network
-              administrator.
+              Gratuated from Bauman MSTU. Spent 10 years working as electronics engineer, my high school specialization.
+              Also experienced as technical support specialist and network administrator.
             </p>
             <p className={pStyle(mobile)}>
-              Nowadays i'm looking for new stint of my career as software engineer. Let me share
-              some examples of my code with you.
+              Nowadays i'm looking for new stint of my career as software engineer. Let me share some examples of my
+              code with you.
             </p>
             <div
               onClick={smoothScroll}

@@ -14,8 +14,7 @@ import {
 import { Context } from '../context/Context'
 
 export const Header = () => {
-  const { homeInViewport, projectsInViewport, aboutInViewport, contactsInViewport, mobile } =
-    useContext(Context)
+  const { homeInViewport, projectsInViewport, aboutInViewport, contactsInViewport, mobile } = useContext(Context)
   const [activeLink, setActiveLink] = useState<string>('home')
   const [open, setOpen] = useState<boolean>(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
@@ -79,7 +78,7 @@ export const Header = () => {
   }
 
   const tabs = ['Home', 'Projects', 'About me', 'Contacts', 'Github']
-  const buttonClass = `${commonTransitionStyle} rotate-${open ? '0' : '180'}`
+  const buttonClass = `${commonTransitionStyle} opacity-70 ${open ? '' : 'rotate-180'}`
   const buttonParentClass = `${open ? '' : 'pl-1'} ${commonTransitionStyle}`
   const button = (
     <div className={buttonParentClass}>
@@ -90,19 +89,11 @@ export const Header = () => {
   return (
     <div className={mobile ? '' : navbarDesktopStyle(scrolled)}>
       {mobile ? <div className={navbarMobileMenuToggler(open, drawNavbar)}>{button}</div> : ''}
-      <div
-        className={
-          mobile ? navbarMobileLinksStyle(open, drawNavbar) : navbarDesktopLinksStyle(scrolled)
-        }
-      >
+      <div className={mobile ? navbarMobileLinksStyle(open, drawNavbar) : navbarDesktopLinksStyle(scrolled)}>
         {tabs.map((el, index) => {
           const link = el.replace(/\s+/g, '').toLowerCase()
           return (
-            <button
-              key={index}
-              className={navbarTabStyle(link, activeLink, mobile)}
-              onClick={smoothScroll}
-            >
+            <button key={index} className={navbarTabStyle(link, activeLink, mobile)} onClick={smoothScroll}>
               {el.replace(/ /g, '\u00A0')}
               {el === 'Github' && !mobile && <div className={navbarIconStyle}>{icon.github}</div>}
             </button>

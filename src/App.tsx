@@ -9,9 +9,7 @@ const App = () => {
     setTimeout(() => setLoaded(true), 250)
   }, [])
 
-  const appClass = `${
-    loaded ? '' : 'opacity-0'
-  } gap-2 bg-black text-slate-100 scroll-pt-10 scroll-smooth bg-space`
+  const appClass = `gap-2 bg-black text-slate-100 scroll-pt-10 scroll-smooth bg-space ${loaded ? '' : 'opacity-0'}`
 
   return (
     <div className={appClass}>

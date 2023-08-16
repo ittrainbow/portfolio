@@ -18,38 +18,23 @@ type CardPropsType = {
   apk?: string
 }
 
-const stackStyles =
-  'text-4xl font-bold flex flex-row p-2 gap-1 rounded-lg bg-opacity-50 bg-slate-100'
+const stackStyles = 'text-4xl font-bold flex flex-row p-2 gap-1 rounded-lg bg-opacity-50 bg-slate-100'
 
-export const Card = ({
-  title,
-  description,
-  stack,
-  git,
-  imgUrl,
-  url,
-  icons,
-  apk
-}: CardPropsType) => {
+export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }: CardPropsType) => {
   const cardRef = useRef<HTMLDivElement>(null)
   const isInViewport = useVisibility(cardRef)
-  const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } =
-    useContext(Context)
+  const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } = useContext(Context)
   const storage = getStorage(app)
 
   useEffect(() => {
-    !aboutInViewport &&
-      !homeInViewport &&
-      !projectsInViewport &&
-      isInViewport &&
-      setProjectsInViewport(isInViewport) // eslint-disable-next-line
+    !aboutInViewport && !homeInViewport && !projectsInViewport && isInViewport && setProjectsInViewport(isInViewport) // eslint-disable-next-line
   }, [isInViewport])
 
-  const clickHandler = () =>
-    getDownloadURL(ref(storage, apk)).then((url) => (window.location.href = url))
+  const clickHandler = () => getDownloadURL(ref(storage, apk)).then((url) => (window.location.href = url))
 
   const onHover = `hover:top-1/2 hover:opacity-95`
-  const cardContentClass = `${onHover} ${commonTransitionStyle} px-2 py-5 -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col opacity-0 min-w-[320px]`
+  const cardContentClass = `${onHover} ${commonTransitionStyle} 
+    px-2 py-5 -translate-x-1/2 -translate-y-1/2 absolute top-2/3 left-1/2 flex flex-col opacity-0 min-w-[320px]`
   const cardBgClass = `${onHover} ${commonTransitionStyle} relative max-w-md overflow-hidden rounded-xl card-bg`
   const subTextClass = 'text-sm text-center opacity-70 mt-1'
 
