@@ -12,7 +12,8 @@ import {
   SiExpo,
   SiReacttable,
   SiCss3,
-  SiSocketdotio
+  SiSocketdotio,
+  SiWebrtc
 } from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
 
@@ -45,10 +46,7 @@ export const telegram = (
 )
 
 export const youtube = (
-  <a
-    href="https://www.youtube.com/channel/UChRO1srqMVe1_oMMs8nTnyw"
-    className="bg-white bg-cover rounded-3xl"
-  >
+  <a href="https://www.youtube.com/channel/UChRO1srqMVe1_oMMs8nTnyw" className="bg-white bg-cover rounded-3xl">
     <SiYoutube className="text-red-600" />
   </a>
 )
@@ -86,3 +84,5 @@ export const expo = <SiExpo className="text-gray-900" />
 export const firebase = <SiFirebase className="text-orange-500" />
 
 export const socketIo = <SiSocketdotio className="text-gray-900" />
+
+export const webRTC = <SiWebrtc className="bg-green-600 rounded-full w-9 h-9" />
