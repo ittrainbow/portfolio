@@ -31,14 +31,17 @@ export const Home = () => {
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
           <div className={fadeTextClass}>
-            <div className="py-2 font-sans text-3xl text-white">I'm Andrey Gordienko</div>
+            <div className="py-2 font-sans text-3xl text-white">Hi! I'm Andrey Gordienko</div>
             <p className={pStyle(mobile)}>Front-end developer.</p>
             <p ref={homeRef} className={pStyle(mobile)}>
               Gratuated from Bauman MSTU. Spent 10 years working as electronics engineer, my high school specialization.
-              Also experienced as technical support specialist and network administrator.
+            </p>
+            <p ref={homeRef} className={pStyle(mobile)}>
+              As a software engineer I'm familiar with Javascript & Typescript. React & React Native. Redux, Sagas,
+              Thunk & Toolkit. Sass, Tailwind, MobX, WebSockets, WebRTC, Jest.
             </p>
             <p className={pStyle(mobile)}>
-              Nowadays i'm looking for new stint of my career as software engineer. Let me share some examples of my
+              Nowadays i'm looking for new stint of my career. Let me share some examples of my
               code with you.
             </p>
             <div

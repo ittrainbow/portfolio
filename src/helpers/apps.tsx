@@ -30,8 +30,8 @@ export const apps = [
   },
   {
     title: 'Audio player',
-    description: 'React Native mp3-player + .apk',
-    stack: 'React Native, Expo SDK',
+    description: 'React Native mp3 player + .apk',
+    stack: 'React Native, Expo',
     imgUrl: player,
     url: '',
     git: 'https://github.com/ittrainbow/player-native',
