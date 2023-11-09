@@ -36,7 +36,7 @@ export const apps = [
     url: '',
     git: 'https://github.com/ittrainbow/player-native',
     icons: [icon.js, icon.reactNative, icon.expo],
-    apk: 'player-native.apk'
+    apk: 'player-native.zip'
   },
   {
     title: 'Task manager',
@@ -50,11 +50,11 @@ export const apps = [
   {
     title: 'QA process app',
     description: 'Used for some of my projects',
-    stack: 'React, Firebase',
+    stack: 'React, MobX, Firebase',
     imgUrl: tickets,
     git: 'https://github.com/ittrainbow/ticketsapp',
     url: 'https://tickets-app-aeeed.web.app/',
-    icons: [icon.js, icon.react, icon.firebase]
+    icons: [icon.js, icon.react, icon.mobx, icon.firebase]
   },
   {
     title: 'Mafia app',
@@ -65,15 +65,6 @@ export const apps = [
     url: 'https://circle-38cc7.web.app/',
     icons: [icon.js, icon.react, icon.firebase]
   },
-  // {
-  //   title: 'QB Passer rating',
-  //   description: 'What if DPIs stated as 1st downs',
-  //   stack: 'React Tables, Firebase',
-  //   imgUrl: qb,
-  //   git: 'https://github.com/ittrainbow/qb-app',
-  //   url: 'https://qb-rating-app.web.app/',
-  //   icons: [icon.js, icon.reactTable, icon.firebase]
-  // },
   {
     title: 'Dice game',
     description: 'Web and .apk via Ionic & Capacitor',
@@ -82,7 +73,7 @@ export const apps = [
     git: 'https://github.com/ittrainbow/dice-react',
     url: 'https://gentle-fox-d0d62c.netlify.app/',
     icons: [icon.js, icon.react, icon.css],
-    apk: 'two-dices.apk'
+    apk: 'two-dices.zip'
   },
   {
     title: 'Socket chatrooms',
@@ -100,6 +91,6 @@ export const apps = [
     imgUrl: webrtc,
     git: 'https://github.com/ittrainbow/webrtc-caller',
     url: 'https://ittr-multiuser-webrtc-call.web.app/',
-    icons: [icon.js, icon.webRTC, icon.react]
+    icons: [icon.js, icon.socketIo, icon.webRTC, icon.react]
   }
 ]

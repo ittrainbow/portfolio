@@ -13,20 +13,21 @@ import {
   SiReacttable,
   SiCss3,
   SiSocketdotio,
-  SiWebrtc
+  SiWebrtc,
+  SiMobx
 } from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload } from 'react-icons/fa'
 
-const linkIconStyles = 'pr-1 cursor-pointer text-slate-900'
+const linkIconStyles = 'pr-1 cursor-pointer text-slate-900 linktap'
 
 export const github = (
-  <a href="https://github.com/ittrainbow">
+  <a href="https://github.com/ittrainbow" className="linktap">
     <BsGithub className="cursor-pointer text-slate-200 text-opacity-90 bg-zinc-950 rounded-3xl" />
   </a>
 )
 
 export const githubLink = (link: string) => (
-  <a href={link}>
+  <a href={link} className="linktap">
     <BsGithub className="text-slate-900" />
   </a>
 )
@@ -40,13 +41,13 @@ export const externalLink = (url: string) => (
 export const downloadLink = <FaFileDownload className={linkIconStyles} />
 
 export const telegram = (
-  <a href="https://t.me/ittrainbow">
+  <a href="https://t.me/ittrainbow" className="linktap">
     <BsTelegram className="bg-white cursor-pointer rounded-3xl text-sky-500" />
   </a>
 )
 
 export const youtube = (
-  <a href="https://www.youtube.com/channel/UChRO1srqMVe1_oMMs8nTnyw" className="bg-white bg-cover rounded-3xl">
+  <a href="https://www.youtube.com/channel/UChRO1srqMVe1_oMMs8nTnyw" className="bg-white bg-cover rounded-3xl linktap">
     <SiYoutube className="text-red-600" />
   </a>
 )
@@ -68,6 +69,8 @@ export const ts = <SiTypescript className="text-blue-600 bg-white" />
 export const js = <SiJavascript className="text-yellow-500 bg-black" />
 
 export const react = <SiReact className="text-blue-700" />
+
+export const mobx = <SiMobx className="text-amber-600" />
 
 export const reactNative = <SiReact className="text-violet-900" />
 

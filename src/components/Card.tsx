@@ -39,7 +39,7 @@ export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }
   const subTextClass = 'text-sm text-center opacity-70 mt-1'
 
   return (
-    <div ref={cardRef}>
+    <div ref={cardRef} className="card">
       <div className={fadeStyle(isInViewport)}>
         <div className={cardBgClass}>
           <img src={imgUrl} alt="" />
