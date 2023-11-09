@@ -37,7 +37,7 @@ export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }
 
   const onHover = `hover:opacity-95 w-full h-full`
   const cardContentClass = `${onHover} ${commonTransitionStyle} 
-    px-2 py-5 absolute top-1 left-1 flex flex-col opacity-0 min-w-[320px]`
+    px-2 py-5 absolute top-1 flex flex-col opacity-0 min-w-[320px]`
   const cardBgClass = `${commonTransitionStyle} ${flex} relative max-w-md overflow-hidden rounded-xl card-bg`
   const subTextClass = 'text-sm text-center opacity-70 mt-1'
 
