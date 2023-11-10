@@ -16,7 +16,11 @@ import {
   SiWebrtc,
   SiMobx
 } from 'react-icons/si'
-import { FaExternalLinkSquareAlt, FaFileDownload, FaInfoCircle } from 'react-icons/fa'
+import {
+  FaExternalLinkSquareAlt,
+  FaFileDownload
+  // FaInfoCircle
+} from 'react-icons/fa'
 
 const linkIconStyles = 'pr-1 cursor-pointer text-slate-900 linktap'
 
@@ -90,9 +94,9 @@ export const socketIo = <SiSocketdotio className="text-gray-900" />
 
 export const webRTC = <SiWebrtc className="bg-green-600 rounded-full w-9 h-9" />
 
-export const info = (hover: boolean) => {
-  const classes = `${
-    hover ? 'opacity-0' : 'opacity-20'
-  } absolute w-12 h-12 p-2 text-slate-50 transition-all duration-300`
-  return <FaInfoCircle className={classes} />
-}
+// export const info = (hover: boolean) => {
+//   const classes = `${
+//     hover ? 'opacity-0' : 'opacity-20'
+//   } absolute w-12 h-12 p-2 text-slate-50 transition-all duration-300`
+//   return <FaInfoCircle className={classes} />
+// }
