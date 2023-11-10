@@ -30,11 +30,11 @@ code {
 
 .linktap {
   -webkit-tap-highlight-color: transparent;
+}
 
-  &:active {
-    transform: scale(1.1);
-    transition: 0.22s ease-in-out;
-  }
+.linktap:active {
+  transform: scale(1.1);
+  transition: 0.22s ease-in-out;
 }
 
 .card {
