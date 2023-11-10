@@ -1,6 +1,3 @@
-export const pStyle = (mobile: boolean = false) =>
-  `py-2 mt-3 font-sans text-2xl text-gray-300 ${mobile ? 'text-center' : 'text-start'}`
-
 export const fadeStyle = (isInViewport: boolean) => {
   return `${isInViewport ? 'animate-fade-up' : 'animate-fade-down opacity-0'}`
 }

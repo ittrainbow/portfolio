@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import home from '../assets/home.png'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
-import { Context } from '../context/Context'
+import { fadeStyle } from '../helpers/styles'
 import { useVisibility } from '../hooks/useVisibility'
-import { fadeStyle, pStyle } from '../helpers/styles'
+import { Context } from '../context/Context'
+import home from '../assets/home.png'
 
 export const Home = () => {
   const { setHomeInViewport, mobile } = useContext(Context)
@@ -19,7 +19,7 @@ export const Home = () => {
   const smoothScroll = () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   const buttonStyle = `ease-in-out duration-300 text-violet-500 text-5xl font-bold ${hover ? 'ml-8' : 'ml-3'} `
-
+  const pStyle = `py-2 mt-3 font-sans text-2xl text-gray-300 ${mobile ? 'text-center' : 'text-start'}`
   const fadeHomeClass = `${fadeStyle(isHomeInViewport)} ${mobile ? 'pt-12' : 'pt-24'} pb-16`
 
   const fadeTextClass = `${fadeStyle(
@@ -31,18 +31,19 @@ export const Home = () => {
       <div className="grid place-items-center">
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-5">
           <div className={fadeTextClass}>
-            <div className="py-2 font-sans text-3xl text-white">Hi! I'm Andrey Gordienko.</div>
-            <p className={pStyle(mobile)}>Front-end developer.</p>
-            <p ref={homeRef} className={pStyle(mobile)}>
+            <div className={`py-2 font-sans text-3xl text-white ${mobile ? 'text-center' : 'text-start'}`}>
+              Hi! I'm Andrey Gordienko.
+            </div>
+            <p className={pStyle}>Front-end developer.</p>
+            <p ref={homeRef} className={pStyle}>
               Gratuated from Bauman MSTU. Spent 10 years working as electronics engineer, my high school specialization.
             </p>
-            <p ref={homeRef} className={pStyle(mobile)}>
+            <p ref={homeRef} className={pStyle}>
               As a software engineer I'm familiar with Javascript & Typescript. React & React Native. Redux, Sagas,
               Thunk & Toolkit. Sass, Tailwind, MobX, WebSockets, WebRTC, Jest.
             </p>
-            <p className={pStyle(mobile)}>
-              Nowadays i'm looking for new stint of my career. Let me share some examples of my
-              code with you.
+            <p className={pStyle}>
+              Nowadays i'm looking for new stint of my career. Let me share some examples of my code with you.
             </p>
             <div
               onClick={smoothScroll}

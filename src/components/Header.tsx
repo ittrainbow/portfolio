@@ -1,15 +1,7 @@
 import { useState, useEffect, useContext, MouseEvent } from 'react'
 import { AiOutlineDoubleLeft } from 'react-icons/ai'
 import * as icon from '../helpers/icons'
-import {
-  navbarDesktopStyle,
-  navbarDesktopLinksStyle,
-  navbarMobileLinksStyle,
-  navbarMobileMenuToggler,
-  navbarTabStyle,
-  navbarIconStyle,
-  commonTransitionStyle
-} from '../helpers/styles'
+import * as style from '../helpers/styles'
 
 import { Context } from '../context/Context'
 
@@ -78,8 +70,8 @@ export const Header = () => {
   }
 
   const tabs = ['Home', 'Projects', 'About me', 'Contacts', 'Github']
-  const buttonClass = `${commonTransitionStyle} opacity-70 ${open ? '' : 'rotate-180'}`
-  const buttonParentClass = `${open ? '' : 'pl-1'} ${commonTransitionStyle}`
+  const buttonClass = `${style.commonTransitionStyle} opacity-70 ${open ? '' : 'rotate-180'}`
+  const buttonParentClass = `${open ? '' : 'pl-1'} ${style.commonTransitionStyle}`
   const button = (
     <div className={buttonParentClass}>
       <AiOutlineDoubleLeft onClick={() => setOpen(!open)} className={buttonClass} />
@@ -87,15 +79,17 @@ export const Header = () => {
   )
 
   return (
-    <div className={mobile ? '' : navbarDesktopStyle(scrolled)}>
-      {mobile ? <div className={navbarMobileMenuToggler(open, drawNavbar)}>{button}</div> : ''}
-      <div className={mobile ? navbarMobileLinksStyle(open, drawNavbar) : navbarDesktopLinksStyle(scrolled)}>
+    <div className={mobile ? '' : style.navbarDesktopStyle(scrolled)}>
+      {mobile ? <div className={style.navbarMobileMenuToggler(open, drawNavbar)}>{button}</div> : ''}
+      <div
+        className={mobile ? style.navbarMobileLinksStyle(open, drawNavbar) : style.navbarDesktopLinksStyle(scrolled)}
+      >
         {tabs.map((el, index) => {
           const link = el.replace(/\s+/g, '').toLowerCase()
           return (
-            <button key={index} className={navbarTabStyle(link, activeLink, mobile)} onClick={smoothScroll}>
+            <button key={index} className={style.navbarTabStyle(link, activeLink, mobile)} onClick={smoothScroll}>
               {el.replace(/ /g, '\u00A0')}
-              {el === 'Github' && !mobile && <div className={navbarIconStyle}>{icon.github}</div>}
+              {el === 'Github' && !mobile && <div className={style.navbarIconStyle}>{icon.github}</div>}
             </button>
           )
         })}

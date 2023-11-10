@@ -3,7 +3,7 @@ import { useRef, useEffect, useContext } from 'react'
 import ittr from '../assets/ittr.jpg'
 import { Context } from '../context/Context'
 import { useVisibility } from '../hooks/useVisibility'
-import { pStyle, fadeStyle } from '../helpers/styles'
+import { fadeStyle } from '../helpers/styles'
 
 export const About = () => {
   const aboutHeaderRef = useRef<HTMLDivElement>(null)
@@ -14,8 +14,7 @@ export const About = () => {
   const isTextInViewport = useVisibility(aboutTextRef)
   const isPictureInViewport = useVisibility(aboutPictureRef)
 
-  const { aboutInViewport, projectsInViewport, setAboutInViewport, setProjectsInViewport, mobile } =
-    useContext(Context)
+  const { aboutInViewport, projectsInViewport, setAboutInViewport, setProjectsInViewport, mobile } = useContext(Context)
 
   useEffect(() => {
     !aboutInViewport && projectsInViewport && isHeaderInViewport && setProjectsInViewport(false)
@@ -24,10 +23,10 @@ export const About = () => {
   }, [isTextInViewport])
 
   const headerClass = `${fadeStyle(isHeaderInViewport)}`
-  const textClass = `${fadeStyle(isTextInViewport && (mobile || aboutInViewport))} ${pStyle(mobile)}`
-  const pictureClass = `${fadeStyle(
-    isPictureInViewport && (mobile || aboutInViewport)
-  )} rounded-[50px]`
+  const textClass = `${fadeStyle(
+    isTextInViewport && (mobile || aboutInViewport)
+  )} py-2 mt-3 font-sans text-2xl text-gray-300 ${mobile ? 'text-center' : 'text-start'}`
+  const pictureClass = `${fadeStyle(isPictureInViewport && (mobile || aboutInViewport))} rounded-[50px]`
 
   return (
     <div className="py-16" id="aboutme">
@@ -38,18 +37,14 @@ export const About = () => {
         <div className="grid w-11/12 grid-cols-1 gap-10 sm:w-3/4 sm:grid-cols-7">
           <div ref={aboutTextRef} className="text-left sm:col-span-4">
             <p className={textClass}>Few more words to introduce myself.</p>
+            <p className={textClass}>I was born in Moscow in 1984 and lived in suburbs of a city ever since. Single.</p>
             <p className={textClass}>
-              I was born in Moscow in 1984 and lived in suburbs of a city ever since. Single.
+              Besides mentioned before i spent my years working as sports journalist, technical writer at project
+              institution and crypto-trader. Love bike-traveling and tech. After fully realising that my major
+              speciality does not fit my life goals decided to switch into software engineering.
             </p>
             <p className={textClass}>
-              Besides mentioned before i spent my years working as sports journalist, technical
-              writer at project institution and crypto-trader. Love bike-traveling and tech. After
-              fully realising that my major speciality does not fit my life goals decided to switch
-              into software engineering.
-            </p>
-            <p className={textClass}>
-              Personal interests are sports (football, soccer, cycling), sci-fi and space,
-              video-editing.
+              Personal interests are sports (football, soccer, cycling), sci-fi and space, video-editing.
             </p>
           </div>
           <div ref={aboutPictureRef} className="sm:col-span-3">
