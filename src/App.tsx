@@ -11,9 +11,7 @@ const App = () => {
     setTimeout(() => setLoaded(true), 250)
   }, [])
 
-  const appClass = `gap-2 bg-black text-slate-100 scroll-pt-10 scroll-smooth ${mobile ? 'bg-carbonmob' : 'bg-carbon'} ${
-    loaded ? '' : 'opacity-0'
-  }`
+  const appClass = `gap-2 bg-black text-slate-100 scroll-pt-10 scroll-smooth bg-carbon ${loaded ? '' : 'opacity-0'}`
 
   return (
     <div className={appClass}>

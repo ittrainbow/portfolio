@@ -23,8 +23,7 @@ module.exports = {
         'fade-in': 'fadeIn .7s ease-in-out'
       },
       backgroundImage: {
-        carbon: "url('./assets/carbon.jpg')",
-        carbonmob: "url('./assets/carbonmob.jpg')"
+        carbon: "url('./assets/carbon.jpg')"
       }
     }
   },
