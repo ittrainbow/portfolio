@@ -1,10 +1,8 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Header, Home, Projects, About, Contacts, Footer } from './components'
-import { Context } from './context/Context'
 
 const App = () => {
-  const { mobile } = useContext(Context)
   const [loaded, setLoaded] = useState<boolean>(false)
 
   useEffect(() => {

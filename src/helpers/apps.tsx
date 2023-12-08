@@ -41,20 +41,20 @@ export const apps = [
   {
     title: 'Task manager',
     description: 'Job interview test task',
-    stack: 'React, Redux-Saga, Firebase',
+    stack: 'React, Redux-Saga, MongoDB',
     imgUrl: taskmanager,
     git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
-    icons: [icon.ts, icon.react, icon.saga, icon.firebase]
+    icons: [icon.ts, icon.react, icon.saga, icon.mongo]
   },
   {
-    title: 'QA process app',
+    title: 'QA processing app',
     description: 'Used for some of my projects',
-    stack: 'React, MobX, Firebase',
+    stack: 'React, MobX, PostgreSQL',
     imgUrl: tickets,
-    git: 'https://github.com/ittrainbow/ticketsapp',
+    git: 'https://github.com/ittrainbow/qa-processing-app',
     url: 'https://tickets-app-aeeed.web.app/',
-    icons: [icon.js, icon.react, icon.mobx, icon.firebase]
+    icons: [icon.js, icon.react, icon.mobx, icon.postgres]
   },
   {
     title: 'Mafia app',
@@ -80,7 +80,7 @@ export const apps = [
     description: 'Socket.io simple chat',
     stack: 'React, Socket.io',
     imgUrl: socketchat,
-    git: 'https://github.com/ittrainbow/socket-chat',
+    git: 'https://github.com/ittrainbow/socket-chat-client',
     url: 'https://beautiful-cassata-ceff31.netlify.app/',
     icons: [icon.ts, icon.js, icon.socketIo, icon.react]
   },
@@ -89,7 +89,7 @@ export const apps = [
     description: 'WebRTC multi-user video call app',
     stack: 'React, Socket.io, WebRTC',
     imgUrl: webrtc,
-    git: 'https://github.com/ittrainbow/webrtc-caller',
+    git: 'https://github.com/ittrainbow/webrtc-caller-client',
     url: 'https://ittr-multiuser-webrtc-call.web.app/',
     icons: [icon.js, icon.socketIo, icon.webRTC, icon.react]
   }

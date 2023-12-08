@@ -22,7 +22,7 @@ const stackStyles = 'text-4xl font-bold flex flex-row p-2 gap-1 rounded-lg bg-op
 
 export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }: CardPropsType) => {
   const cardRef = useRef<HTMLDivElement>(null)
-  // const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false)
   const isInViewport = useVisibility(cardRef)
   const { aboutInViewport, projectsInViewport, homeInViewport, setProjectsInViewport } = useContext(Context)
   const storage = getStorage(app)
@@ -33,15 +33,15 @@ export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }
     } // eslint-disable-next-line
   }, [isInViewport])
 
-  // useEffect(() => {
-  //   const card = cardRef.current
-  //   card?.addEventListener('mouseenter', () => setHover(true))
-  //   card?.addEventListener('mouseleave', () => setHover(false))
-  //   return () => {
-  //     card?.removeEventListener('mouseEnter', () => setHover(true))
-  //     card?.removeEventListener('mouseleave', () => setHover(false))
-  //   }
-  // }, [])
+  useEffect(() => {
+    const card = cardRef.current
+    card?.addEventListener('mouseenter', () => setHover(true))
+    card?.addEventListener('mouseleave', () => setHover(false))
+    return () => {
+      card?.removeEventListener('mouseEnter', () => setHover(true))
+      card?.removeEventListener('mouseleave', () => setHover(false))
+    }
+  }, [])
 
   const clickHandler = () => getDownloadURL(ref(storage, apk)).then((url) => (window.location.href = url))
   const flex = `flex flex-col`
@@ -56,7 +56,7 @@ export const Card = ({ title, description, stack, git, imgUrl, url, icons, apk }
     <div ref={cardRef} className="card">
       <div className={fadeStyle(isInViewport)}>
         <div className={cardBgClass}>
-          {/* {icon.info(hover)} */}
+          {icon.info(hover)}
           <img src={imgUrl} alt=""></img>
           <div className={cardContentClass}>
             <div className="flex flex-col justify-center text-center grow">
