@@ -16,7 +16,8 @@ import {
   SiWebrtc,
   SiMobx,
   SiPostgresql,
-  SiMongodb
+  SiMongodb,
+  SiExpress
 } from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload, FaInfoCircle } from 'react-icons/fa'
 
@@ -85,6 +86,8 @@ export const tailwind = <SiTailwindcss className="text-cyan-600" />
 export const css = <SiCss3 className="text-blue-700" />
 
 export const expo = <SiExpo className="text-gray-900" />
+
+export const express = <SiExpress className="text-gray-900" />
 
 export const firebase = <SiFirebase className="text-orange-500" />
 

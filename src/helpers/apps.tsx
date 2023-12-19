@@ -41,7 +41,7 @@ export const apps = [
   {
     title: 'Task manager',
     description: 'Job interview test task',
-    stack: 'React, Redux-Saga, MongoDB',
+    stack: 'React, Redux-Saga, Express, MongoDB',
     imgUrl: taskmanager,
     git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
@@ -50,7 +50,7 @@ export const apps = [
   {
     title: 'QA processing app',
     description: 'Used for some of my projects',
-    stack: 'React, MobX, PostgreSQL',
+    stack: 'React, MobX, Express, PostgreSQL',
     imgUrl: tickets,
     git: 'https://github.com/ittrainbow/qa-processing-app',
     url: 'https://tickets-app-aeeed.web.app/',
@@ -78,19 +78,19 @@ export const apps = [
   {
     title: 'Socket chatrooms',
     description: 'Socket.io simple chat',
-    stack: 'React, Socket.io',
+    stack: 'React, Express, Socket.io',
     imgUrl: socketchat,
     git: 'https://github.com/ittrainbow/socket-chat-client',
     url: 'https://beautiful-cassata-ceff31.netlify.app/',
-    icons: [icon.ts, icon.js, icon.socketIo, icon.react]
+    icons: [icon.ts, icon.express, icon.socketIo, icon.react]
   },
   {
     title: 'RTC caller',
     description: 'WebRTC multi-user video call app',
-    stack: 'React, Socket.io, WebRTC',
+    stack: 'React, Express, Socket.io, WebRTC',
     imgUrl: webrtc,
     git: 'https://github.com/ittrainbow/webrtc-caller-client',
     url: 'https://ittr-multiuser-webrtc-call.web.app/',
-    icons: [icon.js, icon.socketIo, icon.webRTC, icon.react]
+    icons: [icon.js, icon.express, icon.webRTC, icon.react]
   }
 ]
