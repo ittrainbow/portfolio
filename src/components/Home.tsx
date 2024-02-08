@@ -40,7 +40,8 @@ export const Home = () => {
             </p>
             <p ref={homeRef} className={pStyle}>
               As a software engineer I'm familiar with Javascript & Typescript. React & React Native. Redux, Sagas,
-              Thunk & Toolkit. Sass, Tailwind, MobX, WebSockets, WebRTC, Jest. Firebase, PostgreSQL.
+              Thunk & Toolkit. Sass, Tailwind, MobX, WebSockets, WebRTC, Jest. Firebase, PostgreSQL, MongoDB, Apollo,
+              GraphQL.
             </p>
             <p className={pStyle}>
               Nowadays i'm looking for new stint of my career. Let me share some examples of my code with you.
