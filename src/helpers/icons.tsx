@@ -17,7 +17,9 @@ import {
   SiMobx,
   SiPostgresql,
   SiMongodb,
-  SiExpress
+  SiExpress,
+  SiApollographql,
+  SiGraphql
 } from 'react-icons/si'
 import { FaExternalLinkSquareAlt, FaFileDownload, FaInfoCircle } from 'react-icons/fa'
 
@@ -98,6 +100,10 @@ export const webRTC = <SiWebrtc className="bg-green-600 rounded-full w-9 h-9" />
 export const postgres = <SiPostgresql className="rounded-md bg-sky-700 w-9 h-9" />
 
 export const mongo = <SiMongodb className="text-green-700 bg-slate-300 rounded-xl w-9 h-9" />
+
+export const graphql = <SiGraphql className="text-pink-600 rounded-xl w-9 h-9" />
+
+export const apollo = <SiApollographql className="text-gray-900 rounded-xl w-9 h-9" />
 
 export const info = (hover: boolean) => {
   const classes = `${

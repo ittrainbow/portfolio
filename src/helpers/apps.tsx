@@ -41,11 +41,11 @@ export const apps = [
   {
     title: 'Task manager',
     description: 'Job interview test task',
-    stack: 'React, Redux-Saga, Express, MongoDB',
+    stack: 'React, MongoDB, Apollo, GraphQL',
     imgUrl: taskmanager,
     git: 'https://github.com/ittrainbow/task-manager',
     url: 'https://fir-project-3cb69.web.app/',
-    icons: [icon.ts, icon.react, icon.saga, icon.mongo]
+    icons: [icon.ts, icon.mongo, icon.graphql, icon.apollo]
   },
   {
     title: 'QA processing app',
